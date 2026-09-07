@@ -1,0 +1,19 @@
+{
+  "assignment_id": "L1-07",
+  "answer_type": "protocol_ref",
+  "skill": "multi_format",
+  "source_policy": "exact_set",
+  "acceptable_source_sets": [
+    [
+      "сканы/скан_протокол_05.png"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "date": "2026-03-05",
+      "number": 5
+    }
+  }
+}

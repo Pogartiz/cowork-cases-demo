@@ -1,0 +1,857 @@
+{
+  "case_id": "committee-decisions-register",
+  "cutoff_date": "2026-08-18",
+  "status_rule": "deadline_strictly_before_cutoff",
+  "committees": [
+    "Бюджетный комитет",
+    "Комитет по ИТ",
+    "Градостроительный комитет"
+  ],
+  "protocols": [
+    {
+      "file": "протокол_01.md",
+      "number": 1,
+      "date": "2026-01-05",
+      "committee": "Бюджетный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_02.md",
+      "number": 2,
+      "date": "2026-01-19",
+      "committee": "Комитет по ИТ",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_03.md",
+      "number": 3,
+      "date": "2026-02-05",
+      "committee": "Градостроительный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_04.md",
+      "number": 4,
+      "date": "2026-02-19",
+      "committee": "Бюджетный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_05.md",
+      "number": 5,
+      "date": "2026-03-05",
+      "committee": "Комитет по ИТ",
+      "date_in_markdown": false
+    },
+    {
+      "file": "протокол_06.md",
+      "number": 6,
+      "date": "2026-03-19",
+      "committee": "Градостроительный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_07.md",
+      "number": 7,
+      "date": "2026-04-05",
+      "committee": "Бюджетный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_08.md",
+      "number": 8,
+      "date": "2026-04-19",
+      "committee": "Комитет по ИТ",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_09.md",
+      "number": 9,
+      "date": "2026-05-05",
+      "committee": "Градостроительный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_10.md",
+      "number": 10,
+      "date": "2026-05-19",
+      "committee": "Бюджетный комитет",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_11.md",
+      "number": 11,
+      "date": "2026-06-05",
+      "committee": "Комитет по ИТ",
+      "date_in_markdown": true
+    },
+    {
+      "file": "протокол_12.md",
+      "number": 12,
+      "date": "2026-06-19",
+      "committee": "Градостроительный комитет",
+      "date_in_markdown": true
+    }
+  ],
+  "decisions": [
+    {
+      "id": "Р-001",
+      "text": "Обновить документацию по городского освещения",
+      "owner": "Соколов Д.Н.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2028-09-21",
+      "created_protocol_file": "протокол_01.md"
+    },
+    {
+      "id": "Р-002",
+      "text": "Запустить пилотный проект архива документов",
+      "owner": "Иванова М.П.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2029-11-11",
+      "created_protocol_file": "протокол_01.md"
+    },
+    {
+      "id": "Р-003",
+      "text": "Обновить документацию по школьного питания",
+      "owner": "Смирнов А.В.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2026-06-19",
+      "created_protocol_file": "протокол_01.md"
+    },
+    {
+      "id": "Р-004",
+      "text": "Согласовать закупку транспортной модели",
+      "owner": "Козлов П.Р.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2030-12-20",
+      "created_protocol_file": "протокол_01.md"
+    },
+    {
+      "id": "Р-005",
+      "text": "Согласовать закупку транспортной модели",
+      "owner": "Иванова М.П.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-03-02",
+      "created_protocol_file": "протокол_02.md"
+    },
+    {
+      "id": "Р-006",
+      "text": "Сформировать рабочую группу по картографического сервиса",
+      "owner": "Новикова Т.И.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2030-01-14",
+      "created_protocol_file": "протокол_02.md"
+    },
+    {
+      "id": "Р-007",
+      "text": "Утвердить лимиты расходов на школьного питания",
+      "owner": "Попова Е.Д.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-06-25",
+      "created_protocol_file": "протокол_02.md"
+    },
+    {
+      "id": "Р-008",
+      "text": "Провести аудит портала открытых данных",
+      "owner": "Новикова Т.И.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2029-02-03",
+      "created_protocol_file": "протокол_03.md"
+    },
+    {
+      "id": "Р-009",
+      "text": "Сформировать рабочую группу по картографического сервиса",
+      "owner": "Иванова М.П.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-06-13",
+      "created_protocol_file": "протокол_03.md"
+    },
+    {
+      "id": "Р-010",
+      "text": "Утвердить лимиты расходов на системы электронного документооборота",
+      "owner": "Иванова М.П.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2029-07-26",
+      "created_protocol_file": "протокол_03.md"
+    },
+    {
+      "id": "Р-011",
+      "text": "Утвердить лимиты расходов на парковочных зон",
+      "owner": "Иванова М.П.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2028-12-05",
+      "created_protocol_file": "протокол_04.md"
+    },
+    {
+      "id": "Р-012",
+      "text": "Перенести сроки внедрения транспортной модели",
+      "owner": "Кузнецов И.С.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2029-06-15",
+      "created_protocol_file": "протокол_04.md"
+    },
+    {
+      "id": "Р-013",
+      "text": "Согласовать закупку транспортной модели",
+      "owner": "Попова Е.Д.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2026-03-18",
+      "created_protocol_file": "протокол_04.md"
+    },
+    {
+      "id": "Р-014",
+      "text": "Согласовать закупку бюджетного планирования",
+      "owner": "Лебедева О.А.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2030-04-17",
+      "created_protocol_file": "протокол_04.md"
+    },
+    {
+      "id": "Р-015",
+      "text": "Запустить пилотный проект резервного копирования",
+      "owner": "Новикова Т.И.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-06-20",
+      "created_protocol_file": "протокол_05.md"
+    },
+    {
+      "id": "Р-016",
+      "text": "Подготовить регламент по резервного копирования",
+      "owner": "Новикова Т.И.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-03-28",
+      "created_protocol_file": "протокол_05.md"
+    },
+    {
+      "id": "Р-017",
+      "text": "Утвердить лимиты расходов на бюджетного планирования",
+      "owner": "Попова Е.Д.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2027-01-15",
+      "created_protocol_file": "протокол_05.md"
+    },
+    {
+      "id": "Р-018",
+      "text": "Согласовать закупку картографического сервиса",
+      "owner": "Козлов П.Р.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-02-12",
+      "created_protocol_file": "протокол_06.md"
+    },
+    {
+      "id": "Р-019",
+      "text": "Перенести сроки внедрения благоустройства набережной",
+      "owner": "Новикова Т.И.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-03-23",
+      "created_protocol_file": "протокол_06.md"
+    },
+    {
+      "id": "Р-020",
+      "text": "Согласовать закупку школьного питания",
+      "owner": "Новикова Т.И.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-06-08",
+      "created_protocol_file": "протокол_06.md"
+    },
+    {
+      "id": "Р-021",
+      "text": "Провести аудит системы электронного документооборота",
+      "owner": "Кузнецов И.С.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2028-05-12",
+      "created_protocol_file": "протокол_07.md"
+    },
+    {
+      "id": "Р-022",
+      "text": "Согласовать закупку портала открытых данных",
+      "owner": "Попова Е.Д.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2029-05-12",
+      "created_protocol_file": "протокол_07.md"
+    },
+    {
+      "id": "Р-023",
+      "text": "Подготовить регламент по архива документов",
+      "owner": "Лебедева О.А.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2030-09-26",
+      "created_protocol_file": "протокол_07.md"
+    },
+    {
+      "id": "Р-024",
+      "text": "Перенести сроки внедрения парковочных зон",
+      "owner": "Иванова М.П.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2028-04-24",
+      "created_protocol_file": "протокол_07.md"
+    },
+    {
+      "id": "Р-025",
+      "text": "Обновить документацию по картографического сервиса",
+      "owner": "Иванова М.П.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2030-06-22",
+      "created_protocol_file": "протокол_08.md"
+    },
+    {
+      "id": "Р-026",
+      "text": "Обновить документацию по транспортной модели",
+      "owner": "Иванова М.П.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-03-03",
+      "created_protocol_file": "протокол_08.md"
+    },
+    {
+      "id": "Р-027",
+      "text": "Подготовить регламент по городского освещения",
+      "owner": "Смирнов А.В.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-02-14",
+      "created_protocol_file": "протокол_08.md"
+    },
+    {
+      "id": "Р-028",
+      "text": "Перенести сроки внедрения портала открытых данных",
+      "owner": "Попова Е.Д.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2028-05-04",
+      "created_protocol_file": "протокол_09.md"
+    },
+    {
+      "id": "Р-029",
+      "text": "Сформировать рабочую группу по благоустройства набережной",
+      "owner": "Соколов Д.Н.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2029-12-08",
+      "created_protocol_file": "протокол_09.md"
+    },
+    {
+      "id": "Р-030",
+      "text": "Перенести сроки внедрения портала открытых данных",
+      "owner": "Козлов П.Р.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2028-01-03",
+      "created_protocol_file": "протокол_09.md"
+    },
+    {
+      "id": "Р-031",
+      "text": "Сформировать рабочую группу по резервного копирования",
+      "owner": "Новикова Т.И.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2026-03-08",
+      "created_protocol_file": "протокол_10.md"
+    },
+    {
+      "id": "Р-032",
+      "text": "Сформировать рабочую группу по парковочных зон",
+      "owner": "Лебедева О.А.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2026-08-18",
+      "created_protocol_file": "протокол_10.md"
+    },
+    {
+      "id": "Р-033",
+      "text": "Провести аудит городского освещения",
+      "owner": "Козлов П.Р.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2030-11-12",
+      "created_protocol_file": "протокол_10.md"
+    },
+    {
+      "id": "Р-034",
+      "text": "Согласовать закупку системы электронного документооборота",
+      "owner": "Иванова М.П.",
+      "committee": "Бюджетный комитет",
+      "initial_deadline": "2028-01-03",
+      "created_protocol_file": "протокол_10.md"
+    },
+    {
+      "id": "Р-035",
+      "text": "Запустить пилотный проект благоустройства набережной",
+      "owner": "Соколов Д.Н.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-03-22",
+      "created_protocol_file": "протокол_11.md"
+    },
+    {
+      "id": "Р-036",
+      "text": "Согласовать закупку серверной инфраструктуры",
+      "owner": "Соколов Д.Н.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2026-02-16",
+      "created_protocol_file": "протокол_11.md"
+    },
+    {
+      "id": "Р-037",
+      "text": "Сформировать рабочую группу по архива документов",
+      "owner": "Соколов Д.Н.",
+      "committee": "Комитет по ИТ",
+      "initial_deadline": "2030-08-23",
+      "created_protocol_file": "протокол_11.md"
+    },
+    {
+      "id": "Р-038",
+      "text": "Сформировать рабочую группу по системы электронного документооборота",
+      "owner": "Новикова Т.И.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-03-17",
+      "created_protocol_file": "протокол_12.md"
+    },
+    {
+      "id": "Р-039",
+      "text": "Согласовать закупку парковочных зон",
+      "owner": "Смирнов А.В.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-02-16",
+      "created_protocol_file": "протокол_12.md"
+    },
+    {
+      "id": "Р-040",
+      "text": "Запустить пилотный проект резервного копирования",
+      "owner": "Козлов П.Р.",
+      "committee": "Градостроительный комитет",
+      "initial_deadline": "2026-05-03",
+      "created_protocol_file": "протокол_12.md"
+    }
+  ],
+  "events": [
+    {
+      "decision_id": "Р-001",
+      "type": "Создание",
+      "date": "2026-01-05",
+      "file": "протокол_01.md",
+      "old_value": null,
+      "new_value": "2028-09-21",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-002",
+      "type": "Создание",
+      "date": "2026-01-05",
+      "file": "протокол_01.md",
+      "old_value": null,
+      "new_value": "2029-11-11",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-003",
+      "type": "Создание",
+      "date": "2026-01-05",
+      "file": "протокол_01.md",
+      "old_value": null,
+      "new_value": "2026-06-19",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-004",
+      "type": "Создание",
+      "date": "2026-01-05",
+      "file": "протокол_01.md",
+      "old_value": null,
+      "new_value": "2030-12-20",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-005",
+      "type": "Создание",
+      "date": "2026-01-19",
+      "file": "протокол_02.md",
+      "old_value": null,
+      "new_value": "2026-03-02",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-006",
+      "type": "Создание",
+      "date": "2026-01-19",
+      "file": "протокол_02.md",
+      "old_value": null,
+      "new_value": "2030-01-14",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-007",
+      "type": "Создание",
+      "date": "2026-01-19",
+      "file": "протокол_02.md",
+      "old_value": null,
+      "new_value": "2026-06-25",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-008",
+      "type": "Создание",
+      "date": "2026-02-05",
+      "file": "протокол_03.md",
+      "old_value": null,
+      "new_value": "2029-02-03",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-009",
+      "type": "Создание",
+      "date": "2026-02-05",
+      "file": "протокол_03.md",
+      "old_value": null,
+      "new_value": "2026-06-13",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-010",
+      "type": "Создание",
+      "date": "2026-02-05",
+      "file": "протокол_03.md",
+      "old_value": null,
+      "new_value": "2029-07-26",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-011",
+      "type": "Создание",
+      "date": "2026-02-19",
+      "file": "протокол_04.md",
+      "old_value": null,
+      "new_value": "2028-12-05",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-012",
+      "type": "Создание",
+      "date": "2026-02-19",
+      "file": "протокол_04.md",
+      "old_value": null,
+      "new_value": "2029-06-15",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-013",
+      "type": "Создание",
+      "date": "2026-02-19",
+      "file": "протокол_04.md",
+      "old_value": null,
+      "new_value": "2026-03-18",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-014",
+      "type": "Создание",
+      "date": "2026-02-19",
+      "file": "протокол_04.md",
+      "old_value": null,
+      "new_value": "2030-04-17",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-015",
+      "type": "Создание",
+      "date": "2026-03-05",
+      "file": "протокол_05.md",
+      "old_value": null,
+      "new_value": "2026-06-20",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-016",
+      "type": "Создание",
+      "date": "2026-03-05",
+      "file": "протокол_05.md",
+      "old_value": null,
+      "new_value": "2026-03-28",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-017",
+      "type": "Создание",
+      "date": "2026-03-05",
+      "file": "протокол_05.md",
+      "old_value": null,
+      "new_value": "2027-01-15",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-018",
+      "type": "Создание",
+      "date": "2026-03-19",
+      "file": "протокол_06.md",
+      "old_value": null,
+      "new_value": "2026-02-12",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-019",
+      "type": "Создание",
+      "date": "2026-03-19",
+      "file": "протокол_06.md",
+      "old_value": null,
+      "new_value": "2026-03-23",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-020",
+      "type": "Создание",
+      "date": "2026-03-19",
+      "file": "протокол_06.md",
+      "old_value": null,
+      "new_value": "2026-06-08",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-021",
+      "type": "Создание",
+      "date": "2026-04-05",
+      "file": "протокол_07.md",
+      "old_value": null,
+      "new_value": "2028-05-12",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-022",
+      "type": "Создание",
+      "date": "2026-04-05",
+      "file": "протокол_07.md",
+      "old_value": null,
+      "new_value": "2029-05-12",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-023",
+      "type": "Создание",
+      "date": "2026-04-05",
+      "file": "протокол_07.md",
+      "old_value": null,
+      "new_value": "2030-09-26",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-024",
+      "type": "Создание",
+      "date": "2026-04-05",
+      "file": "протокол_07.md",
+      "old_value": null,
+      "new_value": "2028-04-24",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-025",
+      "type": "Создание",
+      "date": "2026-04-19",
+      "file": "протокол_08.md",
+      "old_value": null,
+      "new_value": "2030-06-22",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-026",
+      "type": "Создание",
+      "date": "2026-04-19",
+      "file": "протокол_08.md",
+      "old_value": null,
+      "new_value": "2026-03-03",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-027",
+      "type": "Создание",
+      "date": "2026-04-19",
+      "file": "протокол_08.md",
+      "old_value": null,
+      "new_value": "2026-02-14",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-028",
+      "type": "Создание",
+      "date": "2026-05-05",
+      "file": "протокол_09.md",
+      "old_value": null,
+      "new_value": "2028-05-04",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-029",
+      "type": "Создание",
+      "date": "2026-05-05",
+      "file": "протокол_09.md",
+      "old_value": null,
+      "new_value": "2029-12-08",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-030",
+      "type": "Создание",
+      "date": "2026-05-05",
+      "file": "протокол_09.md",
+      "old_value": null,
+      "new_value": "2028-01-03",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-031",
+      "type": "Создание",
+      "date": "2026-05-19",
+      "file": "протокол_10.md",
+      "old_value": null,
+      "new_value": "2026-03-08",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-032",
+      "type": "Создание",
+      "date": "2026-05-19",
+      "file": "протокол_10.md",
+      "old_value": null,
+      "new_value": "2026-08-18",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-033",
+      "type": "Создание",
+      "date": "2026-05-19",
+      "file": "протокол_10.md",
+      "old_value": null,
+      "new_value": "2030-11-12",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-034",
+      "type": "Создание",
+      "date": "2026-05-19",
+      "file": "протокол_10.md",
+      "old_value": null,
+      "new_value": "2028-01-03",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-002",
+      "type": "Перенос",
+      "date": "2026-05-19",
+      "file": "протокол_10.md",
+      "old_value": "2029-11-11",
+      "new_value": "2026-04-01",
+      "comment": "срок скорректирован по итогам обсуждения хода проекта архива документов"
+    },
+    {
+      "decision_id": "Р-024",
+      "type": "Перенос",
+      "date": "2026-05-19",
+      "file": "протокол_10.md",
+      "old_value": "2028-04-24",
+      "new_value": "2027-11-01",
+      "comment": "уточнение срока внедрения парковочных зон"
+    },
+    {
+      "decision_id": "Р-035",
+      "type": "Создание",
+      "date": "2026-06-05",
+      "file": "протокол_11.md",
+      "old_value": null,
+      "new_value": "2026-03-22",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-036",
+      "type": "Создание",
+      "date": "2026-06-05",
+      "file": "протокол_11.md",
+      "old_value": null,
+      "new_value": "2026-02-16",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-037",
+      "type": "Создание",
+      "date": "2026-06-05",
+      "file": "протокол_11.md",
+      "old_value": null,
+      "new_value": "2030-08-23",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-005",
+      "type": "Перенос",
+      "date": "2026-06-05",
+      "file": "протокол_11.md",
+      "old_value": "2026-03-02",
+      "new_value": "2032-01-01",
+      "comment": "срок перенесён в связи с пересмотром условий закупки транспортной модели"
+    },
+    {
+      "decision_id": "Р-017",
+      "type": "Перенос",
+      "date": "2026-06-05",
+      "file": "протокол_11.md",
+      "old_value": "2027-01-15",
+      "new_value": "2026-12-01",
+      "comment": "первый перенос срока по лимитам расходов"
+    },
+    {
+      "decision_id": "Р-038",
+      "type": "Создание",
+      "date": "2026-06-19",
+      "file": "протокол_12.md",
+      "old_value": null,
+      "new_value": "2026-03-17",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-039",
+      "type": "Создание",
+      "date": "2026-06-19",
+      "file": "протокол_12.md",
+      "old_value": null,
+      "new_value": "2026-02-16",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-040",
+      "type": "Создание",
+      "date": "2026-06-19",
+      "file": "протокол_12.md",
+      "old_value": null,
+      "new_value": "2026-05-03",
+      "comment": "принятие решения"
+    },
+    {
+      "decision_id": "Р-017",
+      "type": "Перенос",
+      "date": "2026-06-19",
+      "file": "протокол_12.md",
+      "old_value": "2026-12-01",
+      "new_value": "2026-09-30",
+      "comment": "повторный перенос срока по лимитам расходов"
+    },
+    {
+      "decision_id": "Р-009",
+      "type": "Отмена",
+      "date": "2026-06-19",
+      "file": "протокол_12.md",
+      "old_value": null,
+      "new_value": null,
+      "comment": "решение отменено, актуальность утрачена после пересмотра планов по картографическому сервису"
+    }
+  ],
+  "scan": {
+    "filename": "сканы/скан_протокол_05.png",
+    "decision_id": "Р-017",
+    "protocol_file": "протокол_05.md",
+    "protocol_number": 5,
+    "meeting_date": "2026-03-05",
+    "facts_text_only_on_scan": [
+      "2026-03-05",
+      "№ 5",
+      "Протокол заседания № 5"
+    ]
+  },
+  "regulation": {
+    "filename": "регламент.md",
+    "rules": {
+      "overdue": "deadline_strictly_before_cutoff",
+      "cutoff_date": "2026-08-18",
+      "active_version": "last_event_by_meeting_date",
+      "cancellation_terminal": true,
+      "top5_overdue": "days_overdue_desc_then_id_asc"
+    }
+  },
+  "notes": "Derived from ru-hard-committee-decisions-register with patches: R-017 double amend, R-024 amend, R-032 deadline=cutoff, protocol_05 date on scan only."
+}

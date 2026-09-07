@@ -1,0 +1,16 @@
+{
+  "assignment_id": "L1-05",
+  "answer_type": "file_set",
+  "skill": "retrieval",
+  "source_policy": "skip",
+  "acceptable_source_sets": [],
+  "sort": "lex",
+  "expected": {
+    "refused": false,
+    "answer": [
+      "протокол_07.md",
+      "протокол_10.md"
+    ]
+  },
+  "notes": "file_set: answer is the file list; sources must be empty; source metrics skipped."
+}

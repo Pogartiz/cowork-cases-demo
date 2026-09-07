@@ -1,0 +1,31 @@
+{
+  "case_id": "committee-decisions-register",
+  "domain": "office",
+  "cutoff_date": "2026-08-18",
+  "status_rule": "deadline_strictly_before_cutoff",
+  "assignment_counts": { "L1": 10, "L2": 4, "total": 14 },
+  "traps": {
+    "versions": true,
+    "distractor_twin": false,
+    "rule_in_text": true,
+    "scan_only_fact": true,
+    "unanswerable": true,
+    "minimal_pairs": false
+  },
+  "metrics_not_measured_v0": ["stability_minimal_pairs"],
+  "deviations_from_presentation": {
+    "assignments_vs_8_12": "14 assignments (10 L1 + 4 L2) to separate artifact skills",
+    "unanswerable_share": "2/10 L1 = 20%; 2/14 ≈ 14.3% at case level (~15% target)"
+  },
+  "skills": [
+    "versions",
+    "rules",
+    "retrieval",
+    "multi_format",
+    "refusal",
+    "artifact_state",
+    "artifact_history",
+    "artifact_report",
+    "artifact_brief"
+  ]
+}

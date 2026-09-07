@@ -1,0 +1,20 @@
+{
+  "assignment_id": "L1-06",
+  "answer_type": "id_set",
+  "skill": "versions",
+  "source_policy": "exact_set",
+  "acceptable_source_sets": [
+    [
+      "протокол_05.md",
+      "протокол_11.md",
+      "протокол_12.md"
+    ]
+  ],
+  "sort": "lex",
+  "expected": {
+    "refused": false,
+    "answer": [
+      "Р-017"
+    ]
+  }
+}

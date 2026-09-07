@@ -1,0 +1,18 @@
+{
+  "assignment_id": "L1-01",
+  "answer_type": "date",
+  "skill": "versions",
+  "source_policy": "exact_set",
+  "acceptable_source_sets": [
+    [
+      "протокол_05.md",
+      "протокол_11.md",
+      "протокол_12.md"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": "2026-09-30"
+  }
+}

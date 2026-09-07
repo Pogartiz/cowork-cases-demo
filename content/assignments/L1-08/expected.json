@@ -1,0 +1,17 @@
+{
+  "assignment_id": "L1-08",
+  "answer_type": "string",
+  "skill": "rules",
+  "source_policy": "exact_set",
+  "acceptable_source_sets": [
+    [
+      "регламент.md",
+      "протокол_10.md"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": "В работе"
+  }
+}

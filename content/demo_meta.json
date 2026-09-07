@@ -1,0 +1,168 @@
+{
+  "title": "Реестр решений комитетов",
+  "case_id": "committee-decisions-register",
+  "cutoff_date": "2026-08-18",
+  "default_mode": "agent",
+  "disclaimer": "Переключатель Агент/Автор — только UX, не граница безопасности. В публичном репозитории эталон доступен для скачивания.",
+  "tour": [
+    {
+      "id": "workspace",
+      "title": "Рабочая папка агента",
+      "body": "Так выглядит workspace: протоколы, регламент и скан. Исходники менять нельзя; выводы — на дату среза 2026-08-18.",
+      "focus": "workspace",
+      "mode": "agent"
+    },
+    {
+      "id": "l1-01",
+      "title": "L1-01: актуальный срок Р-017",
+      "body": "Сначала попробуйте ответить в режиме «Агент» — как модель. После проверки можно переключиться в «Автор» и разобрать эталон (ловушка версий / переносов).",
+      "focus": "assignment",
+      "assignment_id": "L1-01",
+      "mode": "agent",
+      "then_author": true
+    },
+    {
+      "id": "l1-07",
+      "title": "L1-07: факт со скана",
+      "body": "Дата и номер протокола, где принято Р-017, есть только на скане — markdown-версия протокола 05 этого не содержит.",
+      "focus": "assignment",
+      "assignment_id": "L1-07",
+      "mode": "agent",
+      "open_file": "сканы/скан_протокол_05.png"
+    },
+    {
+      "id": "l1-09",
+      "title": "L1-09: корректный отказ",
+      "body": "Решения Р-999 в папке нет. Правильный ответ — отказ (refused), а не правдоподобный вымысел.",
+      "focus": "assignment",
+      "assignment_id": "L1-09",
+      "mode": "agent"
+    },
+    {
+      "id": "l2-01",
+      "title": "L2-01: артефакт-реестр",
+      "body": "Условие — собрать xlsx. В режиме «Автор» смотрите эталонную таблицу и чеклист (без office-ридера в браузере).",
+      "focus": "assignment",
+      "assignment_id": "L2-01",
+      "mode": "agent",
+      "then_author": true
+    }
+  ],
+  "assignments": [
+    {
+      "id": "L1-01",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Актуальный срок Р-017"
+    },
+    {
+      "id": "L1-02",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "rule_in_text",
+      "short": "Просрочки Бюджетного комитета"
+    },
+    {
+      "id": "L1-03",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Отменённые решения"
+    },
+    {
+      "id": "L1-04",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Ответственный за архив"
+    },
+    {
+      "id": "L1-05",
+      "level": "L1",
+      "skill": "retrieval",
+      "trap": null,
+      "short": "Файлы по Р-024"
+    },
+    {
+      "id": "L1-06",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Перенос более одного раза"
+    },
+    {
+      "id": "L1-07",
+      "level": "L1",
+      "skill": "multi_format",
+      "trap": "scan_only_fact",
+      "short": "Дата и номер протокола Р-017"
+    },
+    {
+      "id": "L1-08",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "rule_in_text",
+      "short": "Статус Р-032"
+    },
+    {
+      "id": "L1-09",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Срок Р-999 (отказ)"
+    },
+    {
+      "id": "L1-10",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Квантовый телепорт (отказ)"
+    },
+    {
+      "id": "L2-01",
+      "level": "L2",
+      "skill": "artifact_state",
+      "trap": null,
+      "short": "Реестр решений.xlsx"
+    },
+    {
+      "id": "L2-02",
+      "level": "L2",
+      "skill": "artifact_history",
+      "trap": null,
+      "short": "Журнал изменений.xlsx"
+    },
+    {
+      "id": "L2-03",
+      "level": "L2",
+      "skill": "artifact_report",
+      "trap": null,
+      "short": "Отчёт исключения.docx"
+    },
+    {
+      "id": "L2-04",
+      "level": "L2",
+      "skill": "artifact_brief",
+      "trap": null,
+      "short": "Справка руководителю.pptx"
+    }
+  ],
+  "trap_labels": {
+    "versions": "Версии / переносы",
+    "rule_in_text": "Правило в регламенте",
+    "scan_only_fact": "Факт только со скана",
+    "unanswerable": "Неотвечаемый вопрос"
+  },
+  "skill_labels": {
+    "versions": "Версии",
+    "rules": "Правила",
+    "retrieval": "Поиск",
+    "multi_format": "Мультиформат",
+    "refusal": "Отказ",
+    "artifact_state": "Артефакт: состояние",
+    "artifact_history": "Артефакт: история",
+    "artifact_report": "Артефакт: отчёт",
+    "artifact_brief": "Артефакт: справка"
+  }
+}

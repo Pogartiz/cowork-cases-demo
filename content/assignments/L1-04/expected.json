@@ -1,0 +1,20 @@
+{
+  "assignment_id": "L1-04",
+  "answer_type": "string",
+  "skill": "versions",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "протокол_01.md"
+    ],
+    [
+      "протокол_01.md",
+      "протокол_10.md"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": "Иванова М.П."
+  }
+}

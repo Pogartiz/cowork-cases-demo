@@ -1,0 +1,23 @@
+{
+  "assignment_id": "L1-03",
+  "answer_type": "id_set",
+  "skill": "versions",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "протокол_12.md"
+    ],
+    [
+      "протокол_03.md",
+      "протокол_12.md"
+    ]
+  ],
+  "sort": "lex",
+  "expected": {
+    "refused": false,
+    "answer": [
+      "Р-009"
+    ]
+  },
+  "notes": "Cancellation file alone is enough to answer which IDs are cancelled."
+}
