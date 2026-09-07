@@ -29,7 +29,6 @@ export interface DemoMeta {
   case_id: string
   cutoff_date: string
   default_mode: Mode
-  disclaimer: string
   tour: TourStep[]
   assignments: AssignmentMeta[]
   trap_labels: Record<string, string>

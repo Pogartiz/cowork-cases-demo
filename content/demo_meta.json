@@ -3,7 +3,6 @@
   "case_id": "committee-decisions-register",
   "cutoff_date": "2026-08-18",
   "default_mode": "agent",
-  "disclaimer": "Переключатель Агент/Автор — только UX, не граница безопасности. В публичном репозитории эталон доступен для скачивания.",
   "tour": [
     {
       "id": "workspace",

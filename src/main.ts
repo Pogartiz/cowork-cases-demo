@@ -334,7 +334,6 @@ function render(state: State): void {
         <button class="btn" type="button" id="start-tour">Пройти гид</button>
       </div>
     </header>
-    <p class="disclaimer">${esc(state.meta.disclaimer)}</p>
     <div class="layout">
       <section class="panel">
         <div class="panel-h">Workspace</div>
