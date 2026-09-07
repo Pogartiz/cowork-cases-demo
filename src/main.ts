@@ -253,12 +253,12 @@ function renderTour(state: State): string {
   const step = state.meta.tour[state.tourIndex]
   const n = state.meta.tour.length
   const isLast = state.tourIndex >= n - 1
-  return `<aside class="tour" id="tour">
-    <div class="progress">Тур · шаг ${state.tourIndex + 1} из ${n}</div>
+  return `<aside class="guide" id="guide" aria-label="Гид по кейсу">
+    <div class="progress">Гид · шаг ${state.tourIndex + 1} из ${n}</div>
     <h2>${esc(step.title)}</h2>
     <p>${esc(step.body)}</p>
     <div class="row">
-      <button class="btn" type="button" data-tour="skip">Закрыть тур</button>
+      <button class="btn" type="button" data-tour="skip">Закрыть гид</button>
       ${state.tourIndex > 0 ? `<button class="btn" type="button" data-tour="prev">Назад</button>` : ''}
       ${
         step.then_author && state.mode === 'agent'
@@ -318,6 +318,7 @@ function render(state: State): void {
     return body
   })()
 
+  app.classList.toggle('guide-open', state.tourActive)
   app.innerHTML = `
     <header class="topbar">
       <div class="brand">
@@ -330,7 +331,7 @@ function render(state: State): void {
           <button type="button" data-mode="agent" class="${state.mode === 'agent' ? 'active' : ''}" data-mode-set="agent">Агент</button>
           <button type="button" data-mode="author" class="${state.mode === 'author' ? 'active' : ''}" data-mode-set="author">Автор</button>
         </div>
-        <button class="btn" type="button" id="start-tour">Пройти тур</button>
+        <button class="btn" type="button" id="start-tour">Пройти гид</button>
       </div>
     </header>
     <p class="disclaimer">${esc(state.meta.disclaimer)}</p>
