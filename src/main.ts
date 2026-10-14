@@ -216,13 +216,15 @@ function renderL1Form(cs: CaseState): string {
       verdict = `<div class="verdict ${cls}"><strong>${title}</strong> — ${esc(reasons.join(', ') || 'ok')}
         <div class="soft">${esc(softParts.join(' · '))}</div></div>`
     } else {
-      verdict = `<div class="verdict ${cls}"><strong>${title}</strong> — ${esc(result.note)}
-        <div class="soft">${esc(result.detail || '')}</div></div>`
+      const soft = result.detail
+        ? `<div class="soft">${esc(result.detail)}</div>`
+        : ''
+      verdict = `<div class="verdict ${cls}"><strong>${title}</strong> — ${esc(result.note)}${soft}</div>`
     }
   }
 
   const intro = simple
-    ? '<p class="muted">Упрощённая сверка (не Toolathlon task_pass).</p>'
+    ? ''
     : '<p class="muted">Сверка как в харнессе: <code>task_pass</code> независим от sources.</p>'
 
   return `

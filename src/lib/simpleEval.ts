@@ -45,25 +45,22 @@ export function evaluateSimple(
 ): SimpleResult {
   if (gold.refused) {
     if (agent.refused && agent.answer === null) {
-      return { task_pass: true, note: 'корректный отказ (упрощённо)' }
+      return { task_pass: true, note: 'корректный отказ' }
     }
     return {
       task_pass: false,
       note: 'ожидался отказ',
-      detail: 'Упрощённая сверка — не эквивалент Toolathlon task_pass.',
     }
   }
   if (agent.refused) {
     return {
       task_pass: false,
       note: 'лишний отказ',
-      detail: 'Упрощённая сверка — не эквивалент Toolathlon task_pass.',
     }
   }
   const ok = stableStringify(agent.answer) === stableStringify(gold.answer)
   return {
     task_pass: ok,
-    note: ok ? 'ответ совпал (упрощённо)' : 'ответ не совпал',
-    detail: 'Упрощённая сверка JSON — не эквивалент Toolathlon task_pass.',
+    note: ok ? 'ответ совпал' : 'ответ не совпал',
   }
 }

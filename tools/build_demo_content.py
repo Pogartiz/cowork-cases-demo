@@ -302,7 +302,6 @@ def build_baf_l2_preview(case_dir: Path) -> dict[str, Any]:
             ],
             "values": prod,
             "peak_day": productivity_peak_day(scenario),
-            "note": "Упрощённый эталон чисел (не полный judge).",
         },
         "L2-02": {
             "artifact": "output/глюкоза_lenti.png",
@@ -324,7 +323,6 @@ def build_baf_l2_preview(case_dir: Path) -> dict[str, Any]:
                     "significant_days": significant_days(scenario, "B"),
                 },
             },
-            "note": "Упрощённый эталон; task_pass в харнессе = png ∧ data.",
         },
         "L2-03": {
             "artifact": "output/сводка_трансфекций.xlsx",
@@ -536,7 +534,6 @@ def build_k24_l2_preview(case_dir: Path) -> dict[str, Any]:
                     "violations": [r["id"] for r in violation_rows(scenario, "B")],
                 },
             },
-            "note": "Упрощённый эталон чисел (не полный judge).",
         },
         "L2-02": {
             "artifact": "output/отчет_аудит_К24.docx",
@@ -557,7 +554,6 @@ def build_k24_l2_preview(case_dir: Path) -> dict[str, Any]:
                     "incomplete": ["такси №18 — нет чека", "акт №25 — черновик"],
                 },
             },
-            "note": "Упрощённый эталон; структура отчёта, не DOCX-байт.",
         },
         "L2-03": {
             "artifact": "output/лимиты_суточные_такси_К24.xlsx",
@@ -577,7 +573,6 @@ def build_k24_l2_preview(case_dir: Path) -> dict[str, Any]:
                 "taxi_flag",
             ],
             "rows": limit_rows,
-            "note": "Упрощённый эталон (вариант не влияет).",
         },
         "L2-04": {
             "artifact": "output/аудит_К24_презентация.pptx",
@@ -600,7 +595,6 @@ def build_k24_l2_preview(case_dir: Path) -> dict[str, Any]:
                     "violations": violation_count(scenario, "B"),
                 },
             },
-            "note": "Упрощённый эталон чисел слайда 2 (не PPTX-байт).",
         },
     }
     return out

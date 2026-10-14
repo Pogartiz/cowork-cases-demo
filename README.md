@@ -41,8 +41,9 @@ npm run preview
 | Кейс | Статус | Особенности |
 |------|--------|-------------|
 | committee-decisions-register | live | тур 5 шагов, сверка L1 как в харнессе |
-| baf-project | live | без тура; A/B на L1-05/L2-02; упрощённая сверка; лёгкие preview xlsx/docx |
-| komandirovki-K24-audit и др. | stub | карточка «скоро» |
+| baf-project | live | без тура; A/B на L1-05/L2-02; preview xlsx/docx |
+| komandirovki-K24-audit | live | без тура; A/B на L1-03/05, L2-01/02/04; preview pdf/xlsx/docx |
+| lab-sample-qc-release и др. | stub | карточка «скоро» |
 
 ## Контент
 
