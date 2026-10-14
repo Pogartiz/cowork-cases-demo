@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build catalog, workspace trees, file previews, baf demo_meta and L2 derived."""
+"""Build catalog, workspace trees, file previews, demo_meta and L2 derived."""
 
 from __future__ import annotations
 
@@ -361,6 +361,251 @@ def build_baf_l2_preview(case_dir: Path) -> dict[str, Any]:
     return out
 
 
+K24_SHORTS = {
+    "L1-01": "Смета К-24 и лимит проживания",
+    "L1-02": "Регламент сверки и порог",
+    "L1-03": "Проживание №15 по реестру",
+    "L1-04": "Дата подписания акта №15",
+    "L1-05": "Нарушение по №15 (да/нет + delta)",
+    "L1-06": "Такси №18 (отказ)",
+    "L1-07": "Согласование превышения №22",
+    "L1-08": "Акт №25 (отказ)",
+    "L2-01": "Сверка проживания К-24.xlsx",
+    "L2-02": "Отчёт аудита К-24.docx",
+    "L2-03": "Лимиты суточные/такси.xlsx",
+    "L2-04": "Презентация аудита К-24.pptx",
+}
+
+K24_TRAPS = {
+    "L1-01": "versions",
+    "L1-02": "versions",
+    "L1-03": "minimal_pair",
+    "L1-04": "scan_only_fact",
+    "L1-05": "minimal_pair",
+    "L1-06": "unanswerable",
+    "L1-07": "rule_in_text",
+    "L1-08": "unanswerable",
+    "L2-01": "minimal_pair",
+    "L2-02": "minimal_pair",
+    "L2-03": None,
+    "L2-04": "minimal_pair",
+}
+
+K24_VARIANT_AIDS = ("L1-03", "L1-05", "L2-01", "L2-02", "L2-04")
+K24_VARIANT_FILE = "проекты/К-24/реестр_командировочных_расходов_проверенный.xlsx"
+
+
+def build_k24_demo_meta(case_dir: Path) -> dict[str, Any]:
+    meta = json.loads((case_dir / "meta.json").read_text(encoding="utf-8"))
+    assignments = []
+    for aid in [
+        "L1-01",
+        "L1-02",
+        "L1-03",
+        "L1-04",
+        "L1-05",
+        "L1-06",
+        "L1-07",
+        "L1-08",
+        "L2-01",
+        "L2-02",
+        "L2-03",
+        "L2-04",
+    ]:
+        exp_path = case_dir / "assignments" / aid / "expected.json"
+        exp = json.loads(exp_path.read_text(encoding="utf-8")) if exp_path.exists() else {}
+        level = "L1" if aid.startswith("L1") else "L2"
+        assignments.append(
+            {
+                "id": aid,
+                "level": level,
+                "skill": exp.get("skill") or ("artifact" if level == "L2" else "retrieval"),
+                "trap": K24_TRAPS.get(aid),
+                "short": K24_SHORTS.get(aid, aid),
+                "has_variants": aid in K24_VARIANT_AIDS,
+            }
+        )
+    return {
+        "title": "Командировки K24 — аудит",
+        "case_id": "komandirovki-K24-audit",
+        "cutoff_date": meta["cutoff_date"],
+        "organization": meta.get("organization", ""),
+        "default_mode": "agent",
+        "eval_mode": "simple",
+        "tour": [],
+        "variant_files": [K24_VARIANT_FILE],
+        "variant_hint": {
+            "B": "Вариант B: в реестре №15 сумма проживания 33800 → 33700 ₽."
+        },
+        "assignments": assignments,
+        "trap_labels": {
+            "versions": "Версии регламента/сметы",
+            "rule_in_text": "Правило в регламенте",
+            "scan_only_fact": "Факт только со скана",
+            "unanswerable": "Неотвечаемый вопрос",
+            "minimal_pair": "Минимальная пара A/B",
+            "distractor_twin": "Дистрактор-двойник",
+        },
+        "skill_labels": {
+            "versions": "Версии",
+            "rules": "Правила",
+            "retrieval": "Поиск",
+            "multi_format": "Мультиформат",
+            "refusal": "Отказ",
+            "vision": "Vision / скан",
+            "artifact_reconciliation": "Артефакт: сверка",
+            "artifact_report": "Артефакт: отчёт",
+            "artifact_limits": "Артефакт: лимиты",
+            "artifact_brief": "Артефакт: презентация",
+            "artifact": "Артефакт",
+        },
+    }
+
+
+def build_k24_l2_preview(case_dir: Path) -> dict[str, Any]:
+    # Avoid clashing with baf lib already on sys.path
+    k24_root = str(CANON / "komandirovki-K24-audit")
+    if k24_root in sys.path:
+        sys.path.remove(k24_root)
+    sys.path.insert(0, k24_root)
+    # Clear cached lib.* from other cases
+    for mod in list(sys.modules):
+        if mod == "lib" or mod.startswith("lib."):
+            del sys.modules[mod]
+    from lib.l2_expected import (  # type: ignore
+        estimate_overrun_trip22,
+        lodging_total,
+        per_diem_total,
+        reconciliation_rows,
+        taxi_flag,
+        taxi_limit,
+        trips,
+        violation_count,
+        violation_rows,
+        daily_limit,
+    )
+
+    scenario = json.loads((case_dir / "scenario.json").read_text(encoding="utf-8"))
+
+    def rows_for(variant: str) -> list[dict[str, Any]]:
+        return [
+            {
+                "id": r["id"],
+                "employee": r["employee"],
+                "register": r["register"],
+                "receipt": r["receipt"],
+                "delta": r["delta"],
+                "result": r["result"],
+            }
+            for r in reconciliation_rows(scenario, variant)
+        ]
+
+    overrun = estimate_overrun_trip22(scenario)
+    limit_rows = []
+    for t in trips(scenario):
+        taxi, flag = taxi_flag(t, scenario)
+        limit_rows.append(
+            {
+                "id": t["id"],
+                "nights": t["nights"],
+                "per_diem": t["per_diem"],
+                "daily_limit": daily_limit(scenario),
+                "taxi": "" if taxi is None else taxi,
+                "taxi_limit": taxi_limit(scenario),
+                "taxi_flag": flag,
+            }
+        )
+
+    out: dict[str, Any] = {
+        "L2-01": {
+            "artifact": "output/сверка_проживания_К24.xlsx",
+            "sheet": "Сверка",
+            "checklist": [
+                "Лист «Сверка»: разность и результат — формулы",
+                "Лист «Расхождения»: только нарушения по порогу регламента v2",
+                "Суммы реестра зависят от варианта A/B (№15)",
+            ],
+            "columns": ["id", "employee", "register", "receipt", "delta", "result"],
+            "by_variant": {
+                "A": {
+                    "rows": rows_for("A"),
+                    "violations": [r["id"] for r in violation_rows(scenario, "A")],
+                },
+                "B": {
+                    "rows": rows_for("B"),
+                    "violations": [r["id"] for r in violation_rows(scenario, "B")],
+                },
+            },
+            "note": "Упрощённый эталон чисел (не полный judge).",
+        },
+        "L2-02": {
+            "artifact": "output/отчет_аудит_К24.docx",
+            "checklist": [
+                "Разделы: Методика, Сверка, Превышения лимитов, Неполные данные",
+                "Методика: регламент v2 / приказ ПР-118",
+                "Таблица сверки как на листе «Сверка» (числа A/B)",
+            ],
+            "by_variant": {
+                "A": {
+                    "reconciliation_rows": rows_for("A"),
+                    "overrun_22": overrun,
+                    "incomplete": ["такси №18 — нет чека", "акт №25 — черновик"],
+                },
+                "B": {
+                    "reconciliation_rows": rows_for("B"),
+                    "overrun_22": overrun,
+                    "incomplete": ["такси №18 — нет чека", "акт №25 — черновик"],
+                },
+            },
+            "note": "Упрощённый эталон; структура отчёта, не DOCX-байт.",
+        },
+        "L2-03": {
+            "artifact": "output/лимиты_суточные_такси_К24.xlsx",
+            "sheet": "Лимиты",
+            "checklist": [
+                "Один лист, строка на командировку",
+                "Флаги суточных и такси — формулы",
+                "Нет данных по такси → явная пометка во флаге",
+            ],
+            "columns": [
+                "id",
+                "nights",
+                "per_diem",
+                "daily_limit",
+                "taxi",
+                "taxi_limit",
+                "taxi_flag",
+            ],
+            "rows": limit_rows,
+            "note": "Упрощённый эталон (вариант не влияет).",
+        },
+        "L2-04": {
+            "artifact": "output/аудит_К24_презентация.pptx",
+            "checklist": [
+                "Ровно 4 слайда: титул, сводка, превышения, неполные данные",
+                "Сводка: 5 командировок; проживание/суточные/нарушения",
+                "Такси №15 превышение; смета №22 + согласование ГП-22-05",
+            ],
+            "by_variant": {
+                "A": {
+                    "trips": 5,
+                    "lodging_total": lodging_total(scenario, "A"),
+                    "per_diem_total": per_diem_total(scenario),
+                    "violations": violation_count(scenario, "A"),
+                },
+                "B": {
+                    "trips": 5,
+                    "lodging_total": lodging_total(scenario, "B"),
+                    "per_diem_total": per_diem_total(scenario),
+                    "violations": violation_count(scenario, "B"),
+                },
+            },
+            "note": "Упрощённый эталон чисел слайда 2 (не PPTX-байт).",
+        },
+    }
+    return out
+
+
 def build_catalog() -> dict[str, Any]:
     cases = []
 
@@ -407,17 +652,24 @@ def build_catalog() -> dict[str, Any]:
             b_meta["assignment_counts"],
         )
     )
+    k_meta = json.loads((CASES / "komandirovki-K24-audit" / "meta.json").read_text(encoding="utf-8"))
+    cases.append(
+        live(
+            "komandirovki-K24-audit",
+            "Командировки K24 — аудит",
+            k_meta.get("organization", ""),
+            k_meta["cutoff_date"],
+            k_meta["assignment_counts"],
+        )
+    )
     for cid in (
-        "komandirovki-K24-audit",
         "lab-sample-qc-release",
         "supply-contract-PS17-claims",
         "trip_audit",
     ):
         cases.append(stub(cid))
 
-    # Friendlier stub titles
     titles = {
-        "komandirovki-K24-audit": "Командировки K24 — аудит",
         "lab-sample-qc-release": "QC-релиз лабораторных проб",
         "supply-contract-PS17-claims": "Поставка PS17 — претензии",
         "trip_audit": "Аудит командировочных",
@@ -446,7 +698,7 @@ def patch_committee_demo_meta() -> None:
 def main() -> None:
     write_json(CONTENT / "catalog.json", build_catalog())
 
-    for case_id in ("committee-decisions-register", "baf-project"):
+    for case_id in ("committee-decisions-register", "baf-project", "komandirovki-K24-audit"):
         case_dir = CASES / case_id
         tree = build_tree(case_dir / "workspace")
         write_json(case_dir / "workspace_tree.json", tree)
@@ -458,13 +710,18 @@ def main() -> None:
     write_json(baf / "derived" / "l2_preview.json", build_baf_l2_preview(baf))
     write_json(baf / "derived" / "file_previews.json", build_file_previews(baf))
 
+    k24 = CASES / "komandirovki-K24-audit"
+    write_json(k24 / "demo_meta.json", build_k24_demo_meta(k24))
+    write_json(k24 / "derived" / "l2_preview.json", build_k24_l2_preview(k24))
+    write_json(k24 / "derived" / "file_previews.json", build_file_previews(k24))
+
     # Committee also gets empty previews map (md/png handled in app)
     write_json(
         CASES / "committee-decisions-register" / "derived" / "file_previews.json",
         {},
     )
 
-    print("OK: catalog, trees, baf demo_meta, l2_preview, file_previews")
+    print("OK: catalog, trees, baf+k24 demo_meta, l2_preview, file_previews")
 
 
 if __name__ == "__main__":

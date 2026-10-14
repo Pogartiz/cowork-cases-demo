@@ -293,7 +293,7 @@ function renderAuthorL2(cs: CaseState, id: string): string {
   }
 
   return `<div class="author-box">
-    <h3>Эталон артефакта (режим Автор)${id === 'L2-02' ? ` · вариант ${cs.variant}` : ''}</h3>
+    <h3>Эталон артефакта (режим Автор)${cs.meta.assignments.find((a) => a.id === id)?.has_variants ? ` · вариант ${cs.variant}` : ''}</h3>
     <p><strong>Файл:</strong> ${esc(String(p.artifact || ''))}${p.sheet ? ` · лист «${esc(String(p.sheet))}»` : ''}</p>
     ${p.sidecar ? `<p><strong>Sidecar:</strong> ${esc(String(p.sidecar))}</p>` : ''}
     <ul class="checklist">${checklist}</ul>

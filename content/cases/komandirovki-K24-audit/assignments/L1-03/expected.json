@@ -1,0 +1,36 @@
+{
+  "assignment_id": "L1-03",
+  "answer_type": "amount_obj",
+  "skill": "retrieval",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "реестр_командировочных_расходов_проверенный.xlsx"
+    ],
+    [
+      "реестр_командировочных_расходов_проверенный.xlsx",
+      "приказ_о_направлении_в_командировку_15.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "amount": 33800
+    }
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": {
+        "amount": 33800
+      }
+    },
+    "B": {
+      "refused": false,
+      "answer": {
+        "amount": 33700
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "assignment_id": "L1-05",
+  "answer_type": "violation_verdict",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "реестр_командировочных_расходов_проверенный.xlsx",
+      "чек_проживание_командировка_15.pdf",
+      "регламент_сверки_авансовых_отчетов_v2.docx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "include": false,
+      "delta": 200
+    }
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": {
+        "include": false,
+        "delta": 200
+      }
+    },
+    "B": {
+      "refused": false,
+      "answer": {
+        "include": true,
+        "delta": 300
+      }
+    }
+  }
+}

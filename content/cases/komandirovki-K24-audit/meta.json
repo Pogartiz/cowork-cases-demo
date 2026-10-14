@@ -1,0 +1,45 @@
+{
+  "case_id": "komandirovki-K24-audit",
+  "domain": "office",
+  "cutoff_date": "2026-06-25",
+  "organization": "ООО «Гидропривод НТ»",
+  "project": "К-24",
+  "assignment_counts": { "L1": 8, "L2": 4, "total": 12 },
+  "traps": {
+    "versions": true,
+    "distractor_twin": true,
+    "rule_in_text": true,
+    "scan_only_fact": true,
+    "unanswerable": true,
+    "minimal_pairs": true
+  },
+  "unanswerable_assignments": ["L1-06", "L1-08"],
+  "vision_assignments": ["L1-04"],
+  "minimal_pair_affects": ["L1-03", "L1-05", "L2-01", "L2-02", "L2-04"],
+  "skills": [
+    "versions",
+    "rules",
+    "retrieval",
+    "multi_format",
+    "refusal",
+    "vision",
+    "artifact_reconciliation",
+    "artifact_report",
+    "artifact_limits",
+    "artifact_brief"
+  ],
+  "instruction_id_map": {
+    "L1-01": "K24-L1-01",
+    "L1-02": "K24-L1-02",
+    "L1-03": "K24-L1-03",
+    "L1-04": "K24-L1-04",
+    "L1-05": "K24-L1-05",
+    "L1-06": "K24-L1-06",
+    "L1-07": "K24-L1-07",
+    "L1-08": "K24-L1-08",
+    "L2-01": "K24-L2-01",
+    "L2-02": "K24-L2-02",
+    "L2-03": "K24-L2-03",
+    "L2-04": "K24-L2-04"
+  }
+}

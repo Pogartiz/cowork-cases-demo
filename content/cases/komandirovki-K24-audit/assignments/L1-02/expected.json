@@ -1,0 +1,20 @@
+{
+  "assignment_id": "L1-02",
+  "answer_type": "regulation_ref",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "регламент_сверки_авансовых_отчетов_v2.docx",
+      "приказ_ПР-118_ввод_регламента_v2.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "version": "v2",
+      "threshold": 200
+    }
+  }
+}

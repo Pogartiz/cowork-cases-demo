@@ -1,0 +1,322 @@
+{
+  "L2-01": {
+    "artifact": "output/сверка_проживания_К24.xlsx",
+    "sheet": "Сверка",
+    "checklist": [
+      "Лист «Сверка»: разность и результат — формулы",
+      "Лист «Расхождения»: только нарушения по порогу регламента v2",
+      "Суммы реестра зависят от варианта A/B (№15)"
+    ],
+    "columns": [
+      "id",
+      "employee",
+      "register",
+      "receipt",
+      "delta",
+      "result"
+    ],
+    "by_variant": {
+      "A": {
+        "rows": [
+          {
+            "id": 12,
+            "employee": "Иванов И.И.",
+            "register": 32000,
+            "receipt": 32000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 15,
+            "employee": "Петров П.П.",
+            "register": 33800,
+            "receipt": 34000,
+            "delta": 200,
+            "result": "допустимо"
+          },
+          {
+            "id": 18,
+            "employee": "Сидоров С.С.",
+            "register": 25500,
+            "receipt": 25500,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 22,
+            "employee": "Николаев Н.Н.",
+            "register": 36000,
+            "receipt": 36000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 25,
+            "employee": "Орлов О.О.",
+            "register": 8200,
+            "receipt": 8200,
+            "delta": 0,
+            "result": "допустимо"
+          }
+        ],
+        "violations": []
+      },
+      "B": {
+        "rows": [
+          {
+            "id": 12,
+            "employee": "Иванов И.И.",
+            "register": 32000,
+            "receipt": 32000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 15,
+            "employee": "Петров П.П.",
+            "register": 33700,
+            "receipt": 34000,
+            "delta": 300,
+            "result": "нарушение"
+          },
+          {
+            "id": 18,
+            "employee": "Сидоров С.С.",
+            "register": 25500,
+            "receipt": 25500,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 22,
+            "employee": "Николаев Н.Н.",
+            "register": 36000,
+            "receipt": 36000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 25,
+            "employee": "Орлов О.О.",
+            "register": 8200,
+            "receipt": 8200,
+            "delta": 0,
+            "result": "допустимо"
+          }
+        ],
+        "violations": [
+          15
+        ]
+      }
+    },
+    "note": "Упрощённый эталон чисел (не полный judge)."
+  },
+  "L2-02": {
+    "artifact": "output/отчет_аудит_К24.docx",
+    "checklist": [
+      "Разделы: Методика, Сверка, Превышения лимитов, Неполные данные",
+      "Методика: регламент v2 / приказ ПР-118",
+      "Таблица сверки как на листе «Сверка» (числа A/B)"
+    ],
+    "by_variant": {
+      "A": {
+        "reconciliation_rows": [
+          {
+            "id": 12,
+            "employee": "Иванов И.И.",
+            "register": 32000,
+            "receipt": 32000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 15,
+            "employee": "Петров П.П.",
+            "register": 33800,
+            "receipt": 34000,
+            "delta": 200,
+            "result": "допустимо"
+          },
+          {
+            "id": 18,
+            "employee": "Сидоров С.С.",
+            "register": 25500,
+            "receipt": 25500,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 22,
+            "employee": "Николаев Н.Н.",
+            "register": 36000,
+            "receipt": 36000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 25,
+            "employee": "Орлов О.О.",
+            "register": 8200,
+            "receipt": 8200,
+            "delta": 0,
+            "result": "допустимо"
+          }
+        ],
+        "overrun_22": {
+          "id": 22,
+          "excess": 2000,
+          "letter": "ГП-22-05",
+          "letter_date": "26.05.2026"
+        },
+        "incomplete": [
+          "такси №18 — нет чека",
+          "акт №25 — черновик"
+        ]
+      },
+      "B": {
+        "reconciliation_rows": [
+          {
+            "id": 12,
+            "employee": "Иванов И.И.",
+            "register": 32000,
+            "receipt": 32000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 15,
+            "employee": "Петров П.П.",
+            "register": 33700,
+            "receipt": 34000,
+            "delta": 300,
+            "result": "нарушение"
+          },
+          {
+            "id": 18,
+            "employee": "Сидоров С.С.",
+            "register": 25500,
+            "receipt": 25500,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 22,
+            "employee": "Николаев Н.Н.",
+            "register": 36000,
+            "receipt": 36000,
+            "delta": 0,
+            "result": "допустимо"
+          },
+          {
+            "id": 25,
+            "employee": "Орлов О.О.",
+            "register": 8200,
+            "receipt": 8200,
+            "delta": 0,
+            "result": "допустимо"
+          }
+        ],
+        "overrun_22": {
+          "id": 22,
+          "excess": 2000,
+          "letter": "ГП-22-05",
+          "letter_date": "26.05.2026"
+        },
+        "incomplete": [
+          "такси №18 — нет чека",
+          "акт №25 — черновик"
+        ]
+      }
+    },
+    "note": "Упрощённый эталон; структура отчёта, не DOCX-байт."
+  },
+  "L2-03": {
+    "artifact": "output/лимиты_суточные_такси_К24.xlsx",
+    "sheet": "Лимиты",
+    "checklist": [
+      "Один лист, строка на командировку",
+      "Флаги суточных и такси — формулы",
+      "Нет данных по такси → явная пометка во флаге"
+    ],
+    "columns": [
+      "id",
+      "nights",
+      "per_diem",
+      "daily_limit",
+      "taxi",
+      "taxi_limit",
+      "taxi_flag"
+    ],
+    "rows": [
+      {
+        "id": 12,
+        "nights": 4,
+        "per_diem": 10800,
+        "daily_limit": 2700,
+        "taxi": 2400,
+        "taxi_limit": 3000,
+        "taxi_flag": "ОК"
+      },
+      {
+        "id": 15,
+        "nights": 4,
+        "per_diem": 10800,
+        "daily_limit": 2700,
+        "taxi": 3200,
+        "taxi_limit": 3000,
+        "taxi_flag": "Превышение"
+      },
+      {
+        "id": 18,
+        "nights": 3,
+        "per_diem": 8100,
+        "daily_limit": 2700,
+        "taxi": "",
+        "taxi_limit": 3000,
+        "taxi_flag": "Нет данных"
+      },
+      {
+        "id": 22,
+        "nights": 4,
+        "per_diem": 10800,
+        "daily_limit": 2700,
+        "taxi": 2800,
+        "taxi_limit": 3000,
+        "taxi_flag": "ОК"
+      },
+      {
+        "id": 25,
+        "nights": 1,
+        "per_diem": 2700,
+        "daily_limit": 2700,
+        "taxi": 2600,
+        "taxi_limit": 3000,
+        "taxi_flag": "ОК"
+      }
+    ],
+    "note": "Упрощённый эталон (вариант не влияет)."
+  },
+  "L2-04": {
+    "artifact": "output/аудит_К24_презентация.pptx",
+    "checklist": [
+      "Ровно 4 слайда: титул, сводка, превышения, неполные данные",
+      "Сводка: 5 командировок; проживание/суточные/нарушения",
+      "Такси №15 превышение; смета №22 + согласование ГП-22-05"
+    ],
+    "by_variant": {
+      "A": {
+        "trips": 5,
+        "lodging_total": 135500,
+        "per_diem_total": 43200,
+        "violations": 0
+      },
+      "B": {
+        "trips": 5,
+        "lodging_total": 135400,
+        "per_diem_total": 43200,
+        "violations": 1
+      }
+    },
+    "note": "Упрощённый эталон чисел слайда 2 (не PPTX-байт)."
+  }
+}

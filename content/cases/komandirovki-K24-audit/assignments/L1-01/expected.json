@@ -1,0 +1,25 @@
+{
+  "assignment_id": "L1-01",
+  "answer_type": "estimate_ref",
+  "skill": "versions",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "смета_командировки_v2.xlsx",
+      "смета_командировки_v3.xlsx",
+      "письмо_об_утверждении_сметы_К24.pdf"
+    ],
+    [
+      "смета_командировки_v2.xlsx",
+      "письмо_об_утверждении_сметы_К24.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "version": "v2",
+      "lodging_limit": 8500
+    }
+  }
+}

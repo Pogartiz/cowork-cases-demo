@@ -1,0 +1,18 @@
+{
+  "assignment_id": "L1-04",
+  "answer_type": "date_obj",
+  "skill": "vision",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "акт_выполненных_работ_командировка_15_подписан.png"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "date": "2026-04-27"
+    }
+  }
+}

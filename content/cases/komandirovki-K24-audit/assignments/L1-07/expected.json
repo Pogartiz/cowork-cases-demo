@@ -1,0 +1,22 @@
+{
+  "assignment_id": "L1-07",
+  "answer_type": "approval_ref",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "смета_командировки_v2.xlsx",
+      "чек_проживание_командировка_22.pdf",
+      "письмо_согласование_превышение_лимита_командировка_22.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "approved": true,
+      "doc_id": "ГП-22-05",
+      "date": "2026-05-26"
+    }
+  }
+}
