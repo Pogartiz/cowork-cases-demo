@@ -1,0 +1,23 @@
+{
+  "assignment_id": "L1-04",
+  "answer_type": "lactate_peak",
+  "skill": "retrieval",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "Культивирование/CHOK1-arid-kd-dul_лактат.xlsx"
+    ],
+    [
+      "Культивирование/CHOK1-arid-kd-dul_лактат.xlsx",
+      "Культивирование/сводка_метаболитов.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "day": 6,
+      "value": 27.1
+    }
+  }
+}

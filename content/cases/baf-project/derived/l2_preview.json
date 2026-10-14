@@ -1,0 +1,177 @@
+{
+  "L2-01": {
+    "artifact": "output/продуктивность_puro_2.png",
+    "sidecar": "output/продуктивность_puro_2.json",
+    "checklist": [
+      "PNG графика удельной продуктивности puro_2",
+      "JSON sidecar с дневными значениями (мкг / 10⁶ клеток)",
+      "Визуал осей не автооценён в харнессе"
+    ],
+    "values": [
+      30.0,
+      54.3,
+      68.2,
+      75.0,
+      76.4,
+      72.4,
+      70.0,
+      65.5,
+      61.4
+    ],
+    "peak_day": 5,
+    "note": "Упрощённый эталон чисел (не полный judge)."
+  },
+  "L2-02": {
+    "artifact": "output/глюкоза_lenti.png",
+    "sidecar": "output/глюкоза_lenti.json",
+    "checklist": [
+      "PNG графика глюкозы lenti_2 vs lenti_4",
+      "Подпись: разность > 5% / превышает 5%",
+      "Значимые дни зависят от варианта A/B"
+    ],
+    "by_variant": {
+      "A": {
+        "lenti_2_means": [
+          5.0,
+          4.92,
+          4.7,
+          4.3,
+          4.0,
+          3.6,
+          3.75,
+          3.05,
+          2.9
+        ],
+        "lenti_4_means": [
+          5.0,
+          4.95,
+          4.9,
+          4.7,
+          4.45,
+          4.1,
+          3.9,
+          3.6,
+          3.45
+        ],
+        "significant_days": [
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      },
+      "B": {
+        "lenti_2_means": [
+          5.0,
+          4.92,
+          4.4,
+          4.3,
+          4.0,
+          3.6,
+          3.75,
+          3.05,
+          2.9
+        ],
+        "lenti_4_means": [
+          5.0,
+          4.95,
+          4.9,
+          4.7,
+          4.45,
+          4.1,
+          3.9,
+          3.6,
+          3.45
+        ],
+        "significant_days": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "note": "Упрощённый эталон; task_pass в харнессе = png ∧ data."
+  },
+  "L2-03": {
+    "artifact": "output/сводка_трансфекций.xlsx",
+    "sheet": "Сводка",
+    "checklist": [
+      "Лист «Сводка»",
+      "Строки KD-линий со статусом удачно/неудачно по порогам RFP/eGFP"
+    ],
+    "columns": [
+      "line",
+      "rfp",
+      "egfp",
+      "status"
+    ],
+    "rows": [
+      {
+        "line": "HEK293-arid-kd-lenti_1",
+        "rfp": "93.2",
+        "egfp": "96.4",
+        "status": "удачно"
+      },
+      {
+        "line": "HEK293-arid-kd-lenti_2",
+        "rfp": "72.1",
+        "egfp": "84.6",
+        "status": "неудачно"
+      },
+      {
+        "line": "CHOK1-arid-kd-lenti_4",
+        "rfp": "61.7",
+        "egfp": "51.2",
+        "status": "неудачно"
+      },
+      {
+        "line": "HEK293-arid-kd-puro_1",
+        "rfp": "88.1",
+        "egfp": "91.8",
+        "status": "неудачно"
+      },
+      {
+        "line": "HEK293-arid-kd-puro_2",
+        "rfp": "73.5",
+        "egfp": "98.1",
+        "status": "неудачно"
+      },
+      {
+        "line": "CHOK1-arid-kd-puro_3",
+        "rfp": "91.5",
+        "egfp": "97.0",
+        "status": "удачно"
+      }
+    ],
+    "successful": [
+      "HEK293-arid-kd-lenti_1",
+      "CHOK1-arid-kd-puro_3"
+    ],
+    "failed": [
+      "HEK293-arid-kd-lenti_2",
+      "CHOK1-arid-kd-lenti_4",
+      "HEK293-arid-kd-puro_1",
+      "HEK293-arid-kd-puro_2"
+    ]
+  },
+  "L2-04": {
+    "artifact": "output/ифа_puro_3.xlsx",
+    "sheet": "ИФА",
+    "checklist": [
+      "Источник: правильный twin-файл OD (не distractor)",
+      "Лист «ИФА», значения puro_3 и среднее"
+    ],
+    "values": [
+      0.81,
+      0.85,
+      0.84,
+      0.82
+    ],
+    "mean": 0.83,
+    "line": "CHOK1-arid-kd-puro_3"
+  }
+}

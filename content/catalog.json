@@ -1,0 +1,78 @@
+{
+  "title": "Cowork cases demo",
+  "description": "Интерактивные snapshot-кейсы Cowork для коллег. Без live-sync с Toolathlon.",
+  "cases": [
+    {
+      "id": "committee-decisions-register",
+      "title": "Реестр решений комитетов",
+      "organization": "Офис / комитеты",
+      "cutoff_date": "2026-08-18",
+      "status": "live",
+      "assignment_counts": {
+        "L1": 10,
+        "L2": 4,
+        "total": 14
+      }
+    },
+    {
+      "id": "baf-project",
+      "title": "BAF project (ARID1A)",
+      "organization": "Лаборатория BAF / проект ARID1A",
+      "cutoff_date": "2026-09-22",
+      "status": "live",
+      "assignment_counts": {
+        "L1": 8,
+        "L2": 4,
+        "total": 12
+      }
+    },
+    {
+      "id": "komandirovki-K24-audit",
+      "title": "Командировки K24 — аудит",
+      "organization": "ООО «Гидропривод НТ»",
+      "cutoff_date": "2026-06-25",
+      "status": "stub",
+      "assignment_counts": {
+        "L1": 8,
+        "L2": 4,
+        "total": 12
+      }
+    },
+    {
+      "id": "lab-sample-qc-release",
+      "title": "QC-релиз лабораторных проб",
+      "organization": "НИИ «Биогеном»",
+      "cutoff_date": "2026-09-30",
+      "status": "stub",
+      "assignment_counts": {
+        "L1": 8,
+        "L2": 4,
+        "total": 12
+      }
+    },
+    {
+      "id": "supply-contract-PS17-claims",
+      "title": "Поставка PS17 — претензии",
+      "organization": "ООО «Ладога-Монтаж»",
+      "cutoff_date": "2026-05-27",
+      "status": "stub",
+      "assignment_counts": {
+        "L1": 8,
+        "L2": 4,
+        "total": 12
+      }
+    },
+    {
+      "id": "trip_audit",
+      "title": "Аудит командировочных",
+      "organization": "ООО «НеоВектор»",
+      "cutoff_date": "2026-06-30",
+      "status": "stub",
+      "assignment_counts": {
+        "L1": 8,
+        "L2": 4,
+        "total": 12
+      }
+    }
+  ]
+}

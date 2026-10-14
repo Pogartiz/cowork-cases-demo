@@ -1,0 +1,18 @@
+{
+  "assignment_id": "L1-08",
+  "answer_type": "dilution",
+  "skill": "vision_scan",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "Гели/20251023_HA-pur8mkg.png"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "ratio": "1:500"
+    }
+  }
+}

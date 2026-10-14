@@ -1,0 +1,33 @@
+{
+  "assignment_id": "L1-02",
+  "answer_type": "line_set",
+  "skill": "rule_in_doc",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "KD-cells.docx",
+      "2026_Отчёт_BAF.pdf"
+    ],
+    [
+      "KD-cells.docx",
+      "2026_Отчёт_BAF.pdf",
+      "СОП_транс.docx"
+    ],
+    [
+      "KD-cells.docx",
+      "СОП_транс.docx"
+    ]
+  ],
+  "sort": "lex",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "lines": [
+        "HEK293-arid-kd-lenti_2",
+        "CHOK1-arid-kd-lenti_4",
+        "HEK293-arid-kd-puro_1",
+        "HEK293-arid-kd-puro_2"
+      ]
+    }
+  }
+}

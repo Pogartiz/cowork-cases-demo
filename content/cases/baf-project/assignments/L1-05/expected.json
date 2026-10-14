@@ -1,0 +1,59 @@
+{
+  "assignment_id": "L1-05",
+  "answer_type": "day_set",
+  "skill": "rule_in_doc",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "Культивирование/CHOK1-arid-kd-lenti_4_глюкоза.xlsx",
+      "Культивирование/CHOK1-arid-kd-lenti_2_глюкоза.xlsx",
+      "СОП_культивирование.docx"
+    ],
+    [
+      "Культивирование/CHOK1-arid-kd-lenti_4_глюкоза.xlsx",
+      "Культивирование/CHOK1-arid-kd-lenti_2_глюкоза.xlsx",
+      "СОП_культивирование.docx",
+      "Культивирование/сводка_метаболитов.xlsx"
+    ]
+  ],
+  "sort": "lex",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "days": [
+        4,
+        5,
+        6,
+        8,
+        9
+      ]
+    }
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": {
+        "days": [
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    },
+    "B": {
+      "refused": false,
+      "answer": {
+        "days": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    }
+  }
+}

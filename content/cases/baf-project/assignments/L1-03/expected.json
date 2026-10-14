@@ -1,0 +1,22 @@
+{
+  "assignment_id": "L1-03",
+  "answer_type": "filename",
+  "skill": "vision_scan",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "Гели/20251023_HA-pur8mkg.png"
+    ],
+    [
+      "Гели/20251023_HA-pur8mkg.png",
+      "структура.txt"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "file": "20251023_HA-pur8mkg.png"
+    }
+  }
+}

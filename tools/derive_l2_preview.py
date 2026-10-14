@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build content/derived/l2_preview.json from scenario snapshot.
+"""Build committee case derived/l2_preview.json from scenario snapshot.
 
 Run from demo repo root:
   python3 tools/derive_l2_preview.py
@@ -27,7 +27,7 @@ from l2_expected import (  # noqa: E402
 
 
 def main() -> None:
-    scenario_path = ROOT / "content" / "scenario.json"
+    scenario_path = ROOT / "content" / "cases" / "committee-decisions-register" / "scenario.json"
     if not scenario_path.is_file():
         print(f"FAIL: missing {scenario_path}", file=sys.stderr)
         sys.exit(1)
@@ -125,7 +125,7 @@ def main() -> None:
         },
     }
 
-    out = ROOT / "content" / "derived" / "l2_preview.json"
+    out = ROOT / "content" / "cases" / "committee-decisions-register" / "derived" / "l2_preview.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(preview, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {out}")

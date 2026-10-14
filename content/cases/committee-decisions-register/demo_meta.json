@@ -53,98 +53,112 @@
       "level": "L1",
       "skill": "versions",
       "trap": "versions",
-      "short": "Актуальный срок Р-017"
+      "short": "Актуальный срок Р-017",
+      "has_variants": false
     },
     {
       "id": "L1-02",
       "level": "L1",
       "skill": "rules",
       "trap": "rule_in_text",
-      "short": "Просрочки Бюджетного комитета"
+      "short": "Просрочки Бюджетного комитета",
+      "has_variants": false
     },
     {
       "id": "L1-03",
       "level": "L1",
       "skill": "versions",
       "trap": "versions",
-      "short": "Отменённые решения"
+      "short": "Отменённые решения",
+      "has_variants": false
     },
     {
       "id": "L1-04",
       "level": "L1",
       "skill": "versions",
       "trap": "versions",
-      "short": "Ответственный за архив"
+      "short": "Ответственный за архив",
+      "has_variants": false
     },
     {
       "id": "L1-05",
       "level": "L1",
       "skill": "retrieval",
       "trap": null,
-      "short": "Файлы по Р-024"
+      "short": "Файлы по Р-024",
+      "has_variants": false
     },
     {
       "id": "L1-06",
       "level": "L1",
       "skill": "versions",
       "trap": "versions",
-      "short": "Перенос более одного раза"
+      "short": "Перенос более одного раза",
+      "has_variants": false
     },
     {
       "id": "L1-07",
       "level": "L1",
       "skill": "multi_format",
       "trap": "scan_only_fact",
-      "short": "Дата и номер протокола Р-017"
+      "short": "Дата и номер протокола Р-017",
+      "has_variants": false
     },
     {
       "id": "L1-08",
       "level": "L1",
       "skill": "rules",
       "trap": "rule_in_text",
-      "short": "Статус Р-032"
+      "short": "Статус Р-032",
+      "has_variants": false
     },
     {
       "id": "L1-09",
       "level": "L1",
       "skill": "refusal",
       "trap": "unanswerable",
-      "short": "Срок Р-999 (отказ)"
+      "short": "Срок Р-999 (отказ)",
+      "has_variants": false
     },
     {
       "id": "L1-10",
       "level": "L1",
       "skill": "refusal",
       "trap": "unanswerable",
-      "short": "Квантовый телепорт (отказ)"
+      "short": "Квантовый телепорт (отказ)",
+      "has_variants": false
     },
     {
       "id": "L2-01",
       "level": "L2",
       "skill": "artifact_state",
       "trap": null,
-      "short": "Реестр решений.xlsx"
+      "short": "Реестр решений.xlsx",
+      "has_variants": false
     },
     {
       "id": "L2-02",
       "level": "L2",
       "skill": "artifact_history",
       "trap": null,
-      "short": "Журнал изменений.xlsx"
+      "short": "Журнал изменений.xlsx",
+      "has_variants": false
     },
     {
       "id": "L2-03",
       "level": "L2",
       "skill": "artifact_report",
       "trap": null,
-      "short": "Отчёт исключения.docx"
+      "short": "Отчёт исключения.docx",
+      "has_variants": false
     },
     {
       "id": "L2-04",
       "level": "L2",
       "skill": "artifact_brief",
       "trap": null,
-      "short": "Справка руководителю.pptx"
+      "short": "Справка руководителю.pptx",
+      "has_variants": false
     }
   ],
   "trap_labels": {
@@ -163,5 +177,7 @@
     "artifact_history": "Артефакт: история",
     "artifact_report": "Артефакт: отчёт",
     "artifact_brief": "Артефакт: справка"
-  }
+  },
+  "eval_mode": "harness",
+  "organization": "Офис / комитеты"
 }

@@ -22,17 +22,42 @@ export async function fetchJson<T>(relPath: string): Promise<T> {
   return res.json() as Promise<T>
 }
 
+export function casePath(caseId: string, rel: string): string {
+  return `cases/${caseId}/${rel.replace(/^\/+/, '')}`
+}
+
 export type Mode = 'agent' | 'author'
+export type EvalMode = 'harness' | 'simple'
+export type Variant = 'A' | 'B'
+
+export interface CatalogCase {
+  id: string
+  title: string
+  organization: string
+  cutoff_date: string
+  status: 'live' | 'stub'
+  assignment_counts: { L1?: number; L2?: number; total?: number }
+}
+
+export interface Catalog {
+  title: string
+  description: string
+  cases: CatalogCase[]
+}
 
 export interface DemoMeta {
   title: string
   case_id: string
   cutoff_date: string
+  organization?: string
   default_mode: Mode
-  tour: TourStep[]
+  eval_mode?: EvalMode
+  tour?: TourStep[]
   assignments: AssignmentMeta[]
   trap_labels: Record<string, string>
   skill_labels: Record<string, string>
+  variant_files?: string[]
+  variant_hint?: Record<string, string>
 }
 
 export interface TourStep {
@@ -52,6 +77,7 @@ export interface AssignmentMeta {
   skill: string
   trap: string | null
   short: string
+  has_variants?: boolean
 }
 
 export interface WorkspaceNode {
@@ -61,38 +87,11 @@ export interface WorkspaceNode {
   children?: WorkspaceNode[]
 }
 
-/** Static tree mirroring content/workspace (snapshot). */
-export const WORKSPACE_TREE: WorkspaceNode = {
-  name: 'workspace',
-  path: '',
-  type: 'dir',
-  children: [
-    {
-      name: 'протоколы',
-      path: 'протоколы',
-      type: 'dir',
-      children: Array.from({ length: 12 }, (_, i) => {
-        const n = String(i + 1).padStart(2, '0')
-        return {
-          name: `протокол_${n}.md`,
-          path: `протоколы/протокол_${n}.md`,
-          type: 'file' as const,
-        }
-      }),
-    },
-    { name: 'регламент.md', path: 'регламент.md', type: 'file' },
-    {
-      name: 'сканы',
-      path: 'сканы',
-      type: 'dir',
-      children: [
-        {
-          name: 'скан_протокол_05.png',
-          path: 'сканы/скан_протокол_05.png',
-          type: 'file',
-        },
-      ],
-    },
-    { name: 'output', path: 'output', type: 'dir', children: [] },
-  ],
-}
+export type FilePreview =
+  | { kind: 'xlsx'; sheets: { name: string; rows: string[][] }[] }
+  | { kind: 'docx'; text?: string; error?: string }
+  | { kind: 'csv'; rows: string[][] }
+  | { kind: 'text'; text: string }
+  | { error: string }
+
+export type FilePreviews = Record<string, FilePreview>

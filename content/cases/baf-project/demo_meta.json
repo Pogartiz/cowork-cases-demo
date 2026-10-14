@@ -1,0 +1,135 @@
+{
+  "title": "BAF project (ARID1A)",
+  "case_id": "baf-project",
+  "cutoff_date": "2026-09-22",
+  "organization": "Лаборатория BAF / проект ARID1A",
+  "default_mode": "agent",
+  "eval_mode": "simple",
+  "tour": [],
+  "variant_files": [
+    "Культивирование/CHOK1-arid-kd-lenti_2_глюкоза.xlsx",
+    "Культивирование/сводка_метаболитов.xlsx"
+  ],
+  "variant_hint": {
+    "B": "Вариант B: в глюкозе lenti_2 день 3 изменён (4.70 → 4.40) + сводка метаболитов."
+  },
+  "assignments": [
+    {
+      "id": "L1-01",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Концентрация pKB-dCas9 (15.07.2025)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-02",
+      "level": "L1",
+      "skill": "rule_in_doc",
+      "trap": "rule_in_text",
+      "short": "Удачные KD-линии по порогам",
+      "has_variants": false
+    },
+    {
+      "id": "L1-03",
+      "level": "L1",
+      "skill": "vision_scan",
+      "trap": "scan_only_fact",
+      "short": "Разведение Ab со скана геля",
+      "has_variants": false
+    },
+    {
+      "id": "L1-04",
+      "level": "L1",
+      "skill": "retrieval",
+      "trap": null,
+      "short": "Пик лактата CHO",
+      "has_variants": false
+    },
+    {
+      "id": "L1-05",
+      "level": "L1",
+      "skill": "rule_in_doc",
+      "trap": "minimal_pair",
+      "short": "Дни значимой разности глюкозы",
+      "has_variants": true
+    },
+    {
+      "id": "L1-06",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Титр puro_1 (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-07",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Микоплазма сент. 2026 (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-08",
+      "level": "L1",
+      "skill": "vision_scan",
+      "trap": "scan_only_fact",
+      "short": "Разведение Ab (vision)",
+      "has_variants": false
+    },
+    {
+      "id": "L2-01",
+      "level": "L2",
+      "skill": "artifact_chart",
+      "trap": null,
+      "short": "График продуктивности puro_2",
+      "has_variants": false
+    },
+    {
+      "id": "L2-02",
+      "level": "L2",
+      "skill": "artifact_chart",
+      "trap": "minimal_pair",
+      "short": "График глюкозы lenti",
+      "has_variants": true
+    },
+    {
+      "id": "L2-03",
+      "level": "L2",
+      "skill": "artifact_reconciliation",
+      "trap": null,
+      "short": "Сводка трансфекций.xlsx",
+      "has_variants": false
+    },
+    {
+      "id": "L2-04",
+      "level": "L2",
+      "skill": "artifact_twin",
+      "trap": "distractor_twin",
+      "short": "ИФА puro_3.xlsx",
+      "has_variants": false
+    }
+  ],
+  "trap_labels": {
+    "versions": "Версии протоколов",
+    "rule_in_text": "Правило в СОП/отчёте",
+    "scan_only_fact": "Факт только со скана",
+    "unanswerable": "Неотвечаемый вопрос",
+    "minimal_pair": "Минимальная пара A/B",
+    "distractor_twin": "Дистрактор-двойник"
+  },
+  "skill_labels": {
+    "versions": "Версии",
+    "rules": "Правила",
+    "retrieval": "Поиск",
+    "multi_format": "Мультиформат",
+    "refusal": "Отказ",
+    "vision": "Vision / скан",
+    "rule_in_doc": "Правило в документе",
+    "artifact_chart": "Артефакт: график",
+    "artifact_reconciliation": "Артефакт: сводка",
+    "artifact_twin": "Артефакт: twin-файл",
+    "artifact": "Артефакт"
+  }
+}

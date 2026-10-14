@@ -1,12 +1,13 @@
 {
-  "name": "cowork-committee-decisions-demo",
+  "name": "cowork-cases-demo",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "content": "python3 tools/build_demo_content.py"
   },
   "devDependencies": {
     "typescript": "~6.0.2",

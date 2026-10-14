@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/cowork-committee-decisions-demo/',
+  base: '/cowork-cases-demo/',
   publicDir: 'content',
   build: {
     outDir: 'dist',

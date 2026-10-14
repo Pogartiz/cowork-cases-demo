@@ -1,19 +1,22 @@
-# Cowork committee-decisions-demo
+# Cowork cases demo
 
-Интерактивное демо пилотного кейса «Реестр решений комитетов» для коллег.
+Каталог интерактивных snapshot-кейсов Cowork для коллег.
 
-**Snapshot** канона из Toolathlon (`cowork_cases/office/committee-decisions-register`). Кейс больше не обновляется — live-sync нет.
+Живые кейсы: **Реестр решений комитетов**, **BAF project**. Остальные из `ru_cowork_local` — заглушки «скоро».
+
+**Snapshot** из канона Toolathlon (`cowork_cases/office/…`). Live-sync с пайплайном нет.
 
 ## URL
 
-После деплоя Pages:
+https://pogartiz.github.io/cowork-cases-demo/
 
-https://pogartiz.github.io/cowork-committee-decisions-demo/
+Старый URL `cowork-committee-decisions-demo` после rename больше не используется. Локальный бэкап до переделки: `../cowork-committee-decisions-demo-backup/`.
 
 ## Локально
 
 ```bash
 npm install
+npm run content   # пересборка catalog / trees / previews / baf L2
 npm run dev
 ```
 
@@ -24,24 +27,40 @@ npm run build
 npm run preview
 ```
 
-Важно: в `vite.config.ts` задано `base: '/cowork-committee-decisions-demo/'` — нужно для GitHub Pages.
+В `vite.config.ts`: `base: '/cowork-cases-demo/'` — нужно для GitHub Pages.
 
 ## Режимы
 
-- **Агент** — то, что видит модель: shared context, задания, workspace.
-- **Автор** — плюс expected, acceptable sources, ловушки, эталон L2.
+- **Агент** — shared context, задания, workspace.
+- **Автор** — плюс expected, sources, ловушки, эталон L2.
+
+Переключатель Агент/Автор — UX, не security boundary (репозиторий публичный).
+
+## Кейсы
+
+| Кейс | Статус | Особенности |
+|------|--------|-------------|
+| committee-decisions-register | live | тур 5 шагов, сверка L1 как в харнессе |
+| baf-project | live | без тура; A/B на L1-05/L2-02; упрощённая сверка; лёгкие preview xlsx/docx |
+| komandirovki-K24-audit и др. | stub | карточка «скоро» |
 
 ## Контент
 
-- `content/workspace/` — папка агента
-- `content/assignments/` — task.md + expected (L1)
-- `content/derived/l2_preview.json` — эталонные таблицы L2
-- `tools/derive_l2_preview.py` — пересборка preview из `content/scenario.json`
-
-```bash
-python3 tools/derive_l2_preview.py
+```
+content/
+  catalog.json
+  cases/<case-id>/
+    workspace/
+    workspace_variants/   # baf A/B overlays
+    assignments/
+    demo_meta.json
+    derived/l2_preview.json
+    derived/file_previews.json
+    workspace_tree.json
 ```
 
-## Сверка L1
+```bash
+python3 tools/build_demo_content.py
+```
 
-Семантика как в `lib/metrics.py` харнесса: `task_pass` не зависит от sources; sources — soft-метрики.
+Для baf L2 derive читает канон `…/cowork_cases/office/baf-project/lib/l2_expected.py`.

@@ -1,0 +1,304 @@
+{
+  "name": "workspace",
+  "path": "",
+  "type": "dir",
+  "children": [
+    {
+      "name": "output",
+      "path": "output",
+      "type": "dir",
+      "children": []
+    },
+    {
+      "name": "Гели",
+      "path": "Гели",
+      "type": "dir",
+      "children": [
+        {
+          "name": "20251021_маркер-only.png",
+          "path": "Гели/20251021_маркер-only.png",
+          "type": "file"
+        },
+        {
+          "name": "20251023_HA-pur8mkg.png",
+          "path": "Гели/20251023_HA-pur8mkg.png",
+          "type": "file"
+        },
+        {
+          "name": "20251024_ARID1A-hek.png",
+          "path": "Гели/20251024_ARID1A-hek.png",
+          "type": "file"
+        },
+        {
+          "name": "20251025_p53-all.png",
+          "path": "Гели/20251025_p53-all.png",
+          "type": "file"
+        },
+        {
+          "name": "20251026_HA-hek+cho.png",
+          "path": "Гели/20251026_HA-hek+cho.png",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Журналы",
+      "path": "Журналы",
+      "type": "dir",
+      "children": [
+        {
+          "name": "журнал_инкубатора_план.csv",
+          "path": "Журналы/журнал_инкубатора_план.csv",
+          "type": "file"
+        },
+        {
+          "name": "журнал_пассажей.xlsx",
+          "path": "Журналы/журнал_пассажей.xlsx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Заметки",
+      "path": "Заметки",
+      "type": "dir",
+      "children": [
+        {
+          "name": "лабораторный_журнал_2024.pdf",
+          "path": "Заметки/лабораторный_журнал_2024.pdf",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Заявки",
+      "path": "Заявки",
+      "type": "dir",
+      "children": [
+        {
+          "name": "заявка_отбор_линий.docx",
+          "path": "Заявки/заявка_отбор_линий.docx",
+          "type": "file"
+        },
+        {
+          "name": "смета_реагентов.xlsx",
+          "path": "Заявки/смета_реагентов.xlsx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "История",
+      "path": "История",
+      "type": "dir",
+      "children": [
+        {
+          "name": "архив_протоколов_2019-2024.zip",
+          "path": "История/архив_протоколов_2019-2024.zip",
+          "type": "file"
+        },
+        {
+          "name": "отчёт_пилотного_2025.docx",
+          "path": "История/отчёт_пилотного_2025.docx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "ИФА",
+      "path": "ИФА",
+      "type": "dir",
+      "children": [
+        {
+          "name": "OD_sum_20250914.xlsx",
+          "path": "ИФА/OD_sum_20250914.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "OD_sum_final.xlsx",
+          "path": "ИФА/OD_sum_final.xlsx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Культивирование",
+      "path": "Культивирование",
+      "type": "dir",
+      "children": [
+        {
+          "name": "CHOK1-arid-kd-dul_глюкоза.xlsx",
+          "path": "Культивирование/CHOK1-arid-kd-dul_глюкоза.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "CHOK1-arid-kd-dul_лактат.xlsx",
+          "path": "Культивирование/CHOK1-arid-kd-dul_лактат.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "CHOK1-arid-kd-lenti_2_глюкоза.xlsx",
+          "path": "Культивирование/CHOK1-arid-kd-lenti_2_глюкоза.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "CHOK1-arid-kd-lenti_4_глюкоза.xlsx",
+          "path": "Культивирование/CHOK1-arid-kd-lenti_4_глюкоза.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "HEK293-arid-kd-lenti_1_титр.xlsx",
+          "path": "Культивирование/HEK293-arid-kd-lenti_1_титр.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "HEK293-arid-kd-puro_1_титр.xlsx",
+          "path": "Культивирование/HEK293-arid-kd-puro_1_титр.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "HEK293-arid-kd-puro_2_клетки.xlsx",
+          "path": "Культивирование/HEK293-arid-kd-puro_2_клетки.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "HEK293-arid-kd-puro_2_титр.xlsx",
+          "path": "Культивирование/HEK293-arid-kd-puro_2_титр.xlsx",
+          "type": "file"
+        },
+        {
+          "name": "сводка_метаболитов.xlsx",
+          "path": "Культивирование/сводка_метаболитов.xlsx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Оборудование",
+      "path": "Оборудование",
+      "type": "dir",
+      "children": [
+        {
+          "name": "бронирование.xlsx",
+          "path": "Оборудование/бронирование.xlsx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Обучение",
+      "path": "Обучение",
+      "type": "dir",
+      "children": [
+        {
+          "name": "инструктаж_09.2026.docx",
+          "path": "Обучение/инструктаж_09.2026.docx",
+          "type": "file"
+        },
+        {
+          "name": "тест_SOP_результаты.csv",
+          "path": "Обучение/тест_SOP_результаты.csv",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Протоколы",
+      "path": "Протоколы",
+      "type": "dir",
+      "children": [
+        {
+          "name": "памятка_нумерации_плазмид_партия_P-2214.docx",
+          "path": "Протоколы/памятка_нумерации_плазмид_партия_P-2214.docx",
+          "type": "file"
+        },
+        {
+          "name": "протокол_трансфекции_v4.docx",
+          "path": "Протоколы/протокол_трансфекции_v4.docx",
+          "type": "file"
+        },
+        {
+          "name": "протокол_трансфекции_v7.docx",
+          "path": "Протоколы/протокол_трансфекции_v7.docx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Сертификаты",
+      "path": "Сертификаты",
+      "type": "dir",
+      "children": [
+        {
+          "name": "сертификат_плазмиды_P-2214.pdf",
+          "path": "Сертификаты/сертификат_плазмиды_P-2214.pdf",
+          "type": "file"
+        },
+        {
+          "name": "сертификаты_сывороток.pdf",
+          "path": "Сертификаты/сертификаты_сывороток.pdf",
+          "type": "file"
+        },
+        {
+          "name": "тест_микоплазма_2025.pdf",
+          "path": "Сертификаты/тест_микоплазма_2025.pdf",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Эксперименты",
+      "path": "Эксперименты",
+      "type": "dir",
+      "children": [
+        {
+          "name": "Трансфекции.xlsx",
+          "path": "Эксперименты/Трансфекции.xlsx",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "Экспорт",
+      "path": "Экспорт",
+      "type": "dir",
+      "children": [
+        {
+          "name": "сырые_ифа_планшет.csv",
+          "path": "Экспорт/сырые_ифа_планшет.csv",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "2026_Отчёт_BAF.pdf",
+      "path": "2026_Отчёт_BAF.pdf",
+      "type": "file"
+    },
+    {
+      "name": "KD-cells.docx",
+      "path": "KD-cells.docx",
+      "type": "file"
+    },
+    {
+      "name": "README_BAF.txt",
+      "path": "README_BAF.txt",
+      "type": "file"
+    },
+    {
+      "name": "СОП_культивирование.docx",
+      "path": "СОП_культивирование.docx",
+      "type": "file"
+    },
+    {
+      "name": "СОП_транс.docx",
+      "path": "СОП_транс.docx",
+      "type": "file"
+    },
+    {
+      "name": "структура.txt",
+      "path": "структура.txt",
+      "type": "file"
+    }
+  ]
+}
