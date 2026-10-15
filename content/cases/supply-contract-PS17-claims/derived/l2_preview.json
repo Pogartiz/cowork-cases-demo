@@ -1,0 +1,333 @@
+{
+  "L2-01": {
+    "artifact": "output/исполнение_ПС-2026-17.xlsx",
+    "sheet": "Исполнение",
+    "checklist": [
+      "Лист «Исполнение»: 4 заявки; стоимость/срок/просрочка/неустойка/претензия — формулы",
+      "Лист «Условия»: цена до/после ДС1, сроки, ставка и предел неустойки",
+      "З-8: дата поставки, дни просрочки, неустойка и срок претензии зависят от A/B"
+    ],
+    "columns": [
+      "id",
+      "order_date",
+      "tons",
+      "price",
+      "cost",
+      "delivery_date",
+      "delay_days",
+      "penalty",
+      "claim_deadline",
+      "status"
+    ],
+    "by_variant": {
+      "A": {
+        "rows": [
+          {
+            "id": "З-3",
+            "order_date": "20.03.2026",
+            "tons": 10,
+            "price": 82000,
+            "cost": 820000,
+            "delivery_date": "02.04.2026",
+            "delay_days": 0,
+            "penalty": 0,
+            "claim_deadline": null,
+            "status": "В срок"
+          },
+          {
+            "id": "З-5",
+            "order_date": "06.04.2026",
+            "tons": 12,
+            "price": 86000,
+            "cost": 1032000,
+            "delivery_date": "14.04.2026",
+            "delay_days": 0,
+            "penalty": 0,
+            "claim_deadline": null,
+            "status": "В срок"
+          },
+          {
+            "id": "З-6",
+            "order_date": "22.04.2026",
+            "tons": 6,
+            "price": 86000,
+            "cost": 516000,
+            "delivery_date": null,
+            "delay_days": null,
+            "penalty": null,
+            "claim_deadline": null,
+            "status": "Нет данных"
+          },
+          {
+            "id": "З-8",
+            "order_date": "28.04.2026",
+            "tons": 8,
+            "price": 86000,
+            "cost": 688000,
+            "delivery_date": "13.05.2026",
+            "delay_days": 5,
+            "penalty": 3440,
+            "claim_deadline": "27.05.2026",
+            "status": "Просрочка"
+          }
+        ],
+        "aggregates": {
+          "z8_delivery_date": "13.05.2026",
+          "z8_delay_days": 5,
+          "z8_penalty": 3440,
+          "z8_claim_deadline": "27.05.2026",
+          "z8_claim_status_on_cutoff": "не истёк — сегодня последний день",
+          "orders_total_cost": 3056000,
+          "confirmed_deliveries_cost": 2540000
+        },
+        "terms": {
+          "price_before": 82000,
+          "price_after": 86000,
+          "delivery_calendar_days": 14,
+          "delivery_workdays": 7,
+          "penalty_rate_pct": 0.1,
+          "penalty_cap_pct": 10,
+          "ds1_from": "01.04.2026",
+          "ds2_status": "неподписанный проект"
+        }
+      },
+      "B": {
+        "rows": [
+          {
+            "id": "З-3",
+            "order_date": "20.03.2026",
+            "tons": 10,
+            "price": 82000,
+            "cost": 820000,
+            "delivery_date": "02.04.2026",
+            "delay_days": 0,
+            "penalty": 0,
+            "claim_deadline": null,
+            "status": "В срок"
+          },
+          {
+            "id": "З-5",
+            "order_date": "06.04.2026",
+            "tons": 12,
+            "price": 86000,
+            "cost": 1032000,
+            "delivery_date": "14.04.2026",
+            "delay_days": 0,
+            "penalty": 0,
+            "claim_deadline": null,
+            "status": "В срок"
+          },
+          {
+            "id": "З-6",
+            "order_date": "22.04.2026",
+            "tons": 6,
+            "price": 86000,
+            "cost": 516000,
+            "delivery_date": null,
+            "delay_days": null,
+            "penalty": null,
+            "claim_deadline": null,
+            "status": "Нет данных"
+          },
+          {
+            "id": "З-8",
+            "order_date": "28.04.2026",
+            "tons": 8,
+            "price": 86000,
+            "cost": 688000,
+            "delivery_date": "12.05.2026",
+            "delay_days": 4,
+            "penalty": 2752,
+            "claim_deadline": "26.05.2026",
+            "status": "Просрочка"
+          }
+        ],
+        "aggregates": {
+          "z8_delivery_date": "12.05.2026",
+          "z8_delay_days": 4,
+          "z8_penalty": 2752,
+          "z8_claim_deadline": "26.05.2026",
+          "z8_claim_status_on_cutoff": "истёк",
+          "orders_total_cost": 3056000,
+          "confirmed_deliveries_cost": 2540000
+        },
+        "terms": {
+          "price_before": 82000,
+          "price_after": 86000,
+          "delivery_calendar_days": 14,
+          "delivery_workdays": 7,
+          "penalty_rate_pct": 0.1,
+          "penalty_cap_pct": 10,
+          "ds1_from": "01.04.2026",
+          "ds2_status": "неподписанный проект"
+        }
+      }
+    }
+  },
+  "L2-02": {
+    "artifact": "output/заключение_ПС-2026-17.docx",
+    "checklist": [
+      "Ровно 5 разделов: Действующие условия, Исполнение поставок, Неустойка, Претензионные сроки, Неполные данные",
+      "Таблица исполнения на 4 заявки",
+      "Статус срока претензии по З-8 на cutoff зависит от A/B"
+    ],
+    "by_variant": {
+      "A": {
+        "aggregates": {
+          "z8_delivery_date": "13.05.2026",
+          "z8_delay_days": 5,
+          "z8_penalty": 3440,
+          "z8_claim_deadline": "27.05.2026",
+          "z8_claim_status_on_cutoff": "не истёк — сегодня последний день",
+          "orders_total_cost": 3056000,
+          "confirmed_deliveries_cost": 2540000
+        },
+        "claim_status": "не истёк — сегодня последний день",
+        "incomplete": [
+          "поставка З-6 не подтверждена",
+          "претензия по З-8 не направлялась"
+        ]
+      },
+      "B": {
+        "aggregates": {
+          "z8_delivery_date": "12.05.2026",
+          "z8_delay_days": 4,
+          "z8_penalty": 2752,
+          "z8_claim_deadline": "26.05.2026",
+          "z8_claim_status_on_cutoff": "истёк",
+          "orders_total_cost": 3056000,
+          "confirmed_deliveries_cost": 2540000
+        },
+        "claim_status": "истёк",
+        "incomplete": [
+          "поставка З-6 не подтверждена",
+          "претензия по З-8 не направлялась"
+        ]
+      }
+    }
+  },
+  "L2-03": {
+    "artifact": "output/влияние_ДС1_ПС-2026-17.xlsx",
+    "sheet": "Сравнение",
+    "checklist": [
+      "Один лист «Сравнение»: 4 заявки",
+      "Применимая цена / стоимость / разница — формулы",
+      "Итоги стоимости и разницы под таблицей — формулы"
+    ],
+    "columns": [
+      "id",
+      "order_date",
+      "tons",
+      "price_base",
+      "price_ds1",
+      "price_applicable",
+      "cost",
+      "cost_base",
+      "delta"
+    ],
+    "rows": [
+      {
+        "id": "З-3",
+        "order_date": "20.03.2026",
+        "tons": 10,
+        "price_base": 82000,
+        "price_ds1": 86000,
+        "price_applicable": 82000,
+        "cost": 820000,
+        "cost_base": 820000,
+        "delta": 0
+      },
+      {
+        "id": "З-5",
+        "order_date": "06.04.2026",
+        "tons": 12,
+        "price_base": 82000,
+        "price_ds1": 86000,
+        "price_applicable": 86000,
+        "cost": 1032000,
+        "cost_base": 984000,
+        "delta": 48000
+      },
+      {
+        "id": "З-6",
+        "order_date": "22.04.2026",
+        "tons": 6,
+        "price_base": 82000,
+        "price_ds1": 86000,
+        "price_applicable": 86000,
+        "cost": 516000,
+        "cost_base": 492000,
+        "delta": 24000
+      },
+      {
+        "id": "З-8",
+        "order_date": "28.04.2026",
+        "tons": 8,
+        "price_base": 82000,
+        "price_ds1": 86000,
+        "price_applicable": 86000,
+        "cost": 688000,
+        "cost_base": 656000,
+        "delta": 32000
+      }
+    ],
+    "totals": {
+      "cost_total": 3056000,
+      "delta_total": 104000
+    }
+  },
+  "L2-04": {
+    "artifact": "output/договор_ПС-2026-17_для_руководителя.pptx",
+    "checklist": [
+      "Ровно 4 слайда: титул, условия, исполнение, что делать",
+      "Сводка: заявки, подтверждённые поставки, просрочки/неустойка",
+      "Срок претензии по З-8 и статус на cutoff зависят от A/B"
+    ],
+    "by_variant": {
+      "A": {
+        "terms": {
+          "price_before": 82000,
+          "price_after": 86000,
+          "delivery_calendar_days": 14,
+          "delivery_workdays": 7,
+          "penalty_rate_pct": 0.1,
+          "penalty_cap_pct": 10,
+          "ds1_from": "01.04.2026",
+          "ds2_status": "неподписанный проект"
+        },
+        "aggregates": {
+          "z8_delivery_date": "13.05.2026",
+          "z8_delay_days": 5,
+          "z8_penalty": 3440,
+          "z8_claim_deadline": "27.05.2026",
+          "z8_claim_status_on_cutoff": "не истёк — сегодня последний день",
+          "orders_total_cost": 3056000,
+          "confirmed_deliveries_cost": 2540000
+        },
+        "claim_status": "не истёк — сегодня последний день"
+      },
+      "B": {
+        "terms": {
+          "price_before": 82000,
+          "price_after": 86000,
+          "delivery_calendar_days": 14,
+          "delivery_workdays": 7,
+          "penalty_rate_pct": 0.1,
+          "penalty_cap_pct": 10,
+          "ds1_from": "01.04.2026",
+          "ds2_status": "неподписанный проект"
+        },
+        "aggregates": {
+          "z8_delivery_date": "12.05.2026",
+          "z8_delay_days": 4,
+          "z8_penalty": 2752,
+          "z8_claim_deadline": "26.05.2026",
+          "z8_claim_status_on_cutoff": "истёк",
+          "orders_total_cost": 3056000,
+          "confirmed_deliveries_cost": 2540000
+        },
+        "claim_status": "истёк"
+      }
+    }
+  }
+}

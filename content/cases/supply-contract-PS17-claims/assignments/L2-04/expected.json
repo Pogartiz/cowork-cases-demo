@@ -1,0 +1,22 @@
+{
+  "assignment_id": "L2-04",
+  "answer_type": "artifact",
+  "skill": "artifact_brief",
+  "source_policy": "skip",
+  "acceptable_source_sets": [],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": null
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": null
+    },
+    "B": {
+      "refused": false,
+      "answer": null
+    }
+  }
+}

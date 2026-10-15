@@ -44,7 +44,8 @@ npm run preview
 | baf-project | live | без тура; A/B на L1-05/L2-02; preview xlsx/docx |
 | komandirovki-K24-audit | live | без тура; A/B на L1-03/05, L2-01/02/04; preview pdf/xlsx/docx |
 | lab-sample-qc-release | live | без тура; A/B на L1-02/05, L2-01…04; preview pdf/xlsx/docx/csv |
-| supply-contract-PS17-claims, trip_audit | stub | карточка «скоро» |
+| supply-contract-PS17-claims | live | без тура; A/B на L1-04/05, L2-01/02/04; preview pdf/xlsx/docx |
+| trip_audit | stub | карточка «скоро» |
 
 ## Контент
 
@@ -53,7 +54,7 @@ content/
   catalog.json
   cases/<case-id>/
     workspace/
-    workspace_variants/   # A/B overlays (baf, k24, lab)
+    workspace_variants/   # A/B overlays (baf, k24, lab, ps17)
     assignments/
     demo_meta.json
     derived/l2_preview.json

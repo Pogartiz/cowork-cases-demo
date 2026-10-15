@@ -1,0 +1,22 @@
+{
+  "assignment_id": "L1-03",
+  "answer_type": "date_obj",
+  "skill": "vision",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "проекты/ПС-2026-17/доверенности/доверенность_44_Смирнов.png"
+    ],
+    [
+      "проекты/ПС-2026-17/доверенности/доверенность_44_Смирнов.png",
+      "проекты/ПС-2026-17/поставки/ТН_З-5.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "date": "2026-06-30"
+    }
+  }
+}

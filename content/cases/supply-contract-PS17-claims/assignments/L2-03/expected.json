@@ -1,0 +1,12 @@
+{
+  "assignment_id": "L2-03",
+  "answer_type": "artifact",
+  "skill": "artifact_limits",
+  "source_policy": "skip",
+  "acceptable_source_sets": [],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": null
+  }
+}

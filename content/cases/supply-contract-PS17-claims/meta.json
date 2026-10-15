@@ -1,0 +1,45 @@
+{
+  "case_id": "supply-contract-PS17-claims",
+  "domain": "office",
+  "cutoff_date": "2026-05-27",
+  "organization": "ООО «Ладога-Монтаж»",
+  "project": "ПС-2026-17",
+  "assignment_counts": { "L1": 8, "L2": 4, "total": 12 },
+  "traps": {
+    "versions": true,
+    "distractor_twin": true,
+    "rule_in_text": true,
+    "scan_only_fact": true,
+    "unanswerable": true,
+    "minimal_pairs": true
+  },
+  "unanswerable_assignments": ["L1-06", "L1-08"],
+  "vision_assignments": ["L1-03"],
+  "minimal_pair_affects": ["L1-04", "L1-05", "L2-01", "L2-02", "L2-04"],
+  "skills": [
+    "versions",
+    "rules",
+    "retrieval",
+    "multi_format",
+    "refusal",
+    "vision",
+    "artifact_reconciliation",
+    "artifact_report",
+    "artifact_limits",
+    "artifact_brief"
+  ],
+  "instruction_id_map": {
+    "L1-01": "SUP-L1-01",
+    "L1-02": "SUP-L1-02",
+    "L1-03": "SUP-L1-03",
+    "L1-04": "SUP-L1-04",
+    "L1-05": "SUP-L1-05",
+    "L1-06": "SUP-L1-06",
+    "L1-07": "SUP-L1-07",
+    "L1-08": "SUP-L1-08",
+    "L2-01": "SUP-L2-01",
+    "L2-02": "SUP-L2-02",
+    "L2-03": "SUP-L2-03",
+    "L2-04": "SUP-L2-04"
+  }
+}

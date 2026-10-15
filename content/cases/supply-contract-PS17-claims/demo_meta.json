@@ -1,0 +1,136 @@
+{
+  "title": "Поставка PS17 — претензии",
+  "case_id": "supply-contract-PS17-claims",
+  "cutoff_date": "2026-05-27",
+  "organization": "ООО «Ладога-Монтаж»",
+  "default_mode": "agent",
+  "eval_mode": "simple",
+  "tour": [],
+  "variant_files": [
+    "проекты/ПС-2026-17/поставки/УПД_З-8.pdf",
+    "проекты/ПС-2026-17/поставки/ТН_З-8.pdf",
+    "проекты/ПС-2026-17/реестр_поставок_ПС-2026-17.xlsx"
+  ],
+  "variant_hint": {
+    "B": "Вариант B: дата поставки З-8 13.05.2026 → 12.05.2026 (УПД, ТН, реестр); на cutoff 27.05 срок претензии уже истёк."
+  },
+  "assignments": [
+    {
+      "id": "L1-01",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Цена за тонну по заявке З-5",
+      "has_variants": false
+    },
+    {
+      "id": "L1-02",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "rule_in_text",
+      "short": "Срок поставки по заявке З-8",
+      "has_variants": false
+    },
+    {
+      "id": "L1-03",
+      "level": "L1",
+      "skill": "vision",
+      "trap": "scan_only_fact",
+      "short": "Срок доверенности №44 (скан)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-04",
+      "level": "L1",
+      "skill": "multi_format",
+      "trap": "minimal_pair",
+      "short": "Неустойка по заявке З-8",
+      "has_variants": true
+    },
+    {
+      "id": "L1-05",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "minimal_pair",
+      "short": "Срок претензии по З-8 на cutoff",
+      "has_variants": true
+    },
+    {
+      "id": "L1-06",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Просрочка по заявке З-6 (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-07",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Ставка и предел неустойки",
+      "has_variants": false
+    },
+    {
+      "id": "L1-08",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Дата отправки претензии (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L2-01",
+      "level": "L2",
+      "skill": "artifact_reconciliation",
+      "trap": "minimal_pair",
+      "short": "Исполнение ПС-2026-17.xlsx",
+      "has_variants": true
+    },
+    {
+      "id": "L2-02",
+      "level": "L2",
+      "skill": "artifact_report",
+      "trap": "minimal_pair",
+      "short": "Заключение ПС-2026-17.docx",
+      "has_variants": true
+    },
+    {
+      "id": "L2-03",
+      "level": "L2",
+      "skill": "artifact_limits",
+      "trap": "rule_in_text",
+      "short": "Влияние ДС №1.xlsx",
+      "has_variants": false
+    },
+    {
+      "id": "L2-04",
+      "level": "L2",
+      "skill": "artifact_brief",
+      "trap": "minimal_pair",
+      "short": "Презентация для руководителя.pptx",
+      "has_variants": true
+    }
+  ],
+  "trap_labels": {
+    "versions": "Версии договора / ДС",
+    "rule_in_text": "Правило в тексте",
+    "scan_only_fact": "Факт только со скана",
+    "unanswerable": "Неотвечаемый вопрос",
+    "minimal_pair": "Минимальная пара A/B",
+    "distractor_twin": "Дистрактор-двойник"
+  },
+  "skill_labels": {
+    "versions": "Версии",
+    "rules": "Правила",
+    "retrieval": "Поиск",
+    "multi_format": "Мультиформат",
+    "refusal": "Отказ",
+    "vision": "Vision / скан",
+    "artifact_reconciliation": "Артефакт: исполнение",
+    "artifact_report": "Артефакт: заключение",
+    "artifact_limits": "Артефакт: влияние ДС",
+    "artifact_brief": "Артефакт: презентация",
+    "artifact": "Артефакт"
+  }
+}

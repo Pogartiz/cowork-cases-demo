@@ -1,0 +1,37 @@
+{
+  "assignment_id": "L1-05",
+  "answer_type": "claim_deadline",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "регламенты/Положение_о_претензионной_работе.docx",
+      "проекты/ПС-2026-17/поставки/УПД_З-8.pdf",
+      "регламенты/производственный_календарь_2026_выписка.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "deadline": "2026-05-27",
+      "expired": false
+    }
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": {
+        "deadline": "2026-05-27",
+        "expired": false
+      }
+    },
+    "B": {
+      "refused": false,
+      "answer": {
+        "deadline": "2026-05-26",
+        "expired": true
+      }
+    }
+  }
+}

@@ -823,6 +823,272 @@ def build_lab_l2_preview(case_dir: Path) -> dict[str, Any]:
     return out
 
 
+SUP_SHORTS = {
+    "L1-01": "Цена за тонну по заявке З-5",
+    "L1-02": "Срок поставки по заявке З-8",
+    "L1-03": "Срок доверенности №44 (скан)",
+    "L1-04": "Неустойка по заявке З-8",
+    "L1-05": "Срок претензии по З-8 на cutoff",
+    "L1-06": "Просрочка по заявке З-6 (отказ)",
+    "L1-07": "Ставка и предел неустойки",
+    "L1-08": "Дата отправки претензии (отказ)",
+    "L2-01": "Исполнение ПС-2026-17.xlsx",
+    "L2-02": "Заключение ПС-2026-17.docx",
+    "L2-03": "Влияние ДС №1.xlsx",
+    "L2-04": "Презентация для руководителя.pptx",
+}
+
+SUP_TRAPS = {
+    "L1-01": "versions",
+    "L1-02": "rule_in_text",
+    "L1-03": "scan_only_fact",
+    "L1-04": "minimal_pair",
+    "L1-05": "minimal_pair",
+    "L1-06": "unanswerable",
+    "L1-07": "versions",
+    "L1-08": "unanswerable",
+    "L2-01": "minimal_pair",
+    "L2-02": "minimal_pair",
+    "L2-03": "rule_in_text",
+    "L2-04": "minimal_pair",
+}
+
+SUP_VARIANT_AIDS = ("L1-04", "L1-05", "L2-01", "L2-02", "L2-04")
+SUP_VARIANT_FILES = [
+    "проекты/ПС-2026-17/поставки/УПД_З-8.pdf",
+    "проекты/ПС-2026-17/поставки/ТН_З-8.pdf",
+    "проекты/ПС-2026-17/реестр_поставок_ПС-2026-17.xlsx",
+]
+SUP_ASSIGNMENT_IDS = [
+    "L1-01",
+    "L1-02",
+    "L1-03",
+    "L1-04",
+    "L1-05",
+    "L1-06",
+    "L1-07",
+    "L1-08",
+    "L2-01",
+    "L2-02",
+    "L2-03",
+    "L2-04",
+]
+
+
+def build_sup_demo_meta(case_dir: Path) -> dict[str, Any]:
+    meta = json.loads((case_dir / "meta.json").read_text(encoding="utf-8"))
+    assignments = []
+    for aid in SUP_ASSIGNMENT_IDS:
+        exp_path = case_dir / "assignments" / aid / "expected.json"
+        exp = json.loads(exp_path.read_text(encoding="utf-8")) if exp_path.exists() else {}
+        level = "L1" if aid.startswith("L1") else "L2"
+        assignments.append(
+            {
+                "id": aid,
+                "level": level,
+                "skill": exp.get("skill") or ("artifact" if level == "L2" else "retrieval"),
+                "trap": SUP_TRAPS.get(aid),
+                "short": SUP_SHORTS.get(aid, aid),
+                "has_variants": aid in SUP_VARIANT_AIDS,
+            }
+        )
+    return {
+        "title": "Поставка PS17 — претензии",
+        "case_id": "supply-contract-PS17-claims",
+        "cutoff_date": meta["cutoff_date"],
+        "organization": meta.get("organization", ""),
+        "default_mode": "agent",
+        "eval_mode": "simple",
+        "tour": [],
+        "variant_files": list(SUP_VARIANT_FILES),
+        "variant_hint": {
+            "B": (
+                "Вариант B: дата поставки З-8 13.05.2026 → 12.05.2026 "
+                "(УПД, ТН, реестр); на cutoff 27.05 срок претензии уже истёк."
+            )
+        },
+        "assignments": assignments,
+        "trap_labels": {
+            "versions": "Версии договора / ДС",
+            "rule_in_text": "Правило в тексте",
+            "scan_only_fact": "Факт только со скана",
+            "unanswerable": "Неотвечаемый вопрос",
+            "minimal_pair": "Минимальная пара A/B",
+            "distractor_twin": "Дистрактор-двойник",
+        },
+        "skill_labels": {
+            "versions": "Версии",
+            "rules": "Правила",
+            "retrieval": "Поиск",
+            "multi_format": "Мультиформат",
+            "refusal": "Отказ",
+            "vision": "Vision / скан",
+            "artifact_reconciliation": "Артефакт: исполнение",
+            "artifact_report": "Артефакт: заключение",
+            "artifact_limits": "Артефакт: влияние ДС",
+            "artifact_brief": "Артефакт: презентация",
+            "artifact": "Артефакт",
+        },
+    }
+
+
+def build_sup_l2_preview(case_dir: Path) -> dict[str, Any]:
+    sup_root = str(CANON / "supply-contract-PS17-claims")
+    if sup_root in sys.path:
+        sys.path.remove(sup_root)
+    sys.path.insert(0, sup_root)
+    for mod in list(sys.modules):
+        if mod == "lib" or mod.startswith("lib."):
+            del sys.modules[mod]
+    from lib.l2_expected import (  # type: ignore
+        aggregates,
+        claim_status_on_cutoff,
+        contract_terms,
+        influence_totals,
+        orders_for_variant,
+        price_influence_rows,
+    )
+
+    scenario = json.loads((case_dir / "scenario.json").read_text(encoding="utf-8"))
+    terms = contract_terms(scenario)
+
+    def order_rows(variant: str) -> list[dict[str, Any]]:
+        return [
+            {
+                "id": r["id"],
+                "order_date": r["order_date"],
+                "tons": r["tons"],
+                "price": r["price"],
+                "cost": r["cost"],
+                "delivery_date": r.get("delivery_date"),
+                "delay_days": r.get("delay_days"),
+                "penalty": r.get("penalty"),
+                "claim_deadline": r.get("claim_deadline"),
+                "status": r.get("status"),
+            }
+            for r in orders_for_variant(scenario, variant)
+        ]
+
+    def agg_brief(variant: str) -> dict[str, Any]:
+        a = aggregates(scenario, variant)
+        return {
+            "z8_delivery_date": a["z8_delivery_date"],
+            "z8_delay_days": a["z8_delay_days"],
+            "z8_penalty": a["z8_penalty"],
+            "z8_claim_deadline": a["z8_claim_deadline"],
+            "z8_claim_status_on_cutoff": a["z8_claim_status_on_cutoff"],
+            "orders_total_cost": a["orders_total_cost"],
+            "confirmed_deliveries_cost": a["confirmed_deliveries_cost"],
+        }
+
+    influence_rows = [
+        {
+            "id": r["id"],
+            "order_date": r["order_date"],
+            "tons": r["tons"],
+            "price_base": r["price_base"],
+            "price_ds1": r["price_ds1"],
+            "price_applicable": r["price_applicable"],
+            "cost": r["cost"],
+            "cost_base": r["cost_base"],
+            "delta": r["delta"],
+        }
+        for r in price_influence_rows(scenario)
+    ]
+    totals = influence_totals(scenario)
+
+    out: dict[str, Any] = {
+        "L2-01": {
+            "artifact": "output/исполнение_ПС-2026-17.xlsx",
+            "sheet": "Исполнение",
+            "checklist": [
+                "Лист «Исполнение»: 4 заявки; стоимость/срок/просрочка/неустойка/претензия — формулы",
+                "Лист «Условия»: цена до/после ДС1, сроки, ставка и предел неустойки",
+                "З-8: дата поставки, дни просрочки, неустойка и срок претензии зависят от A/B",
+            ],
+            "columns": [
+                "id",
+                "order_date",
+                "tons",
+                "price",
+                "cost",
+                "delivery_date",
+                "delay_days",
+                "penalty",
+                "claim_deadline",
+                "status",
+            ],
+            "by_variant": {
+                "A": {"rows": order_rows("A"), "aggregates": agg_brief("A"), "terms": terms},
+                "B": {"rows": order_rows("B"), "aggregates": agg_brief("B"), "terms": terms},
+            },
+        },
+        "L2-02": {
+            "artifact": "output/заключение_ПС-2026-17.docx",
+            "checklist": [
+                "Ровно 5 разделов: Действующие условия, Исполнение поставок, Неустойка, Претензионные сроки, Неполные данные",
+                "Таблица исполнения на 4 заявки",
+                "Статус срока претензии по З-8 на cutoff зависит от A/B",
+            ],
+            "by_variant": {
+                "A": {
+                    "aggregates": agg_brief("A"),
+                    "claim_status": claim_status_on_cutoff(scenario, "A"),
+                    "incomplete": ["поставка З-6 не подтверждена", "претензия по З-8 не направлялась"],
+                },
+                "B": {
+                    "aggregates": agg_brief("B"),
+                    "claim_status": claim_status_on_cutoff(scenario, "B"),
+                    "incomplete": ["поставка З-6 не подтверждена", "претензия по З-8 не направлялась"],
+                },
+            },
+        },
+        "L2-03": {
+            "artifact": "output/влияние_ДС1_ПС-2026-17.xlsx",
+            "sheet": "Сравнение",
+            "checklist": [
+                "Один лист «Сравнение»: 4 заявки",
+                "Применимая цена / стоимость / разница — формулы",
+                "Итоги стоимости и разницы под таблицей — формулы",
+            ],
+            "columns": [
+                "id",
+                "order_date",
+                "tons",
+                "price_base",
+                "price_ds1",
+                "price_applicable",
+                "cost",
+                "cost_base",
+                "delta",
+            ],
+            "rows": influence_rows,
+            "totals": totals,
+        },
+        "L2-04": {
+            "artifact": "output/договор_ПС-2026-17_для_руководителя.pptx",
+            "checklist": [
+                "Ровно 4 слайда: титул, условия, исполнение, что делать",
+                "Сводка: заявки, подтверждённые поставки, просрочки/неустойка",
+                "Срок претензии по З-8 и статус на cutoff зависят от A/B",
+            ],
+            "by_variant": {
+                "A": {
+                    "terms": terms,
+                    "aggregates": agg_brief("A"),
+                    "claim_status": claim_status_on_cutoff(scenario, "A"),
+                },
+                "B": {
+                    "terms": terms,
+                    "aggregates": agg_brief("B"),
+                    "claim_status": claim_status_on_cutoff(scenario, "B"),
+                },
+            },
+        },
+    }
+    return out
+
+
 def build_catalog() -> dict[str, Any]:
     cases = []
 
@@ -889,14 +1155,22 @@ def build_catalog() -> dict[str, Any]:
             lab_meta["assignment_counts"],
         )
     )
-    for cid in (
-        "supply-contract-PS17-claims",
-        "trip_audit",
-    ):
+    sup_meta = json.loads(
+        (CASES / "supply-contract-PS17-claims" / "meta.json").read_text(encoding="utf-8")
+    )
+    cases.append(
+        live(
+            "supply-contract-PS17-claims",
+            "Поставка PS17 — претензии",
+            sup_meta.get("organization", ""),
+            sup_meta["cutoff_date"],
+            sup_meta["assignment_counts"],
+        )
+    )
+    for cid in ("trip_audit",):
         cases.append(stub(cid))
 
     titles = {
-        "supply-contract-PS17-claims": "Поставка PS17 — претензии",
         "trip_audit": "Аудит командировочных",
     }
     for c in cases:
@@ -928,6 +1202,7 @@ def main() -> None:
         "baf-project",
         "komandirovki-K24-audit",
         "lab-sample-qc-release",
+        "supply-contract-PS17-claims",
     ):
         case_dir = CASES / case_id
         tree = build_tree(case_dir / "workspace")
@@ -950,13 +1225,18 @@ def main() -> None:
     write_json(lab / "derived" / "l2_preview.json", build_lab_l2_preview(lab))
     write_json(lab / "derived" / "file_previews.json", build_file_previews(lab))
 
+    sup = CASES / "supply-contract-PS17-claims"
+    write_json(sup / "demo_meta.json", build_sup_demo_meta(sup))
+    write_json(sup / "derived" / "l2_preview.json", build_sup_l2_preview(sup))
+    write_json(sup / "derived" / "file_previews.json", build_file_previews(sup))
+
     # Committee also gets empty previews map (md/png handled in app)
     write_json(
         CASES / "committee-decisions-register" / "derived" / "file_previews.json",
         {},
     )
 
-    print("OK: catalog, trees, baf+k24+lab demo_meta, l2_preview, file_previews")
+    print("OK: catalog, trees, baf+k24+lab+sup demo_meta, l2_preview, file_previews")
 
 
 if __name__ == "__main__":

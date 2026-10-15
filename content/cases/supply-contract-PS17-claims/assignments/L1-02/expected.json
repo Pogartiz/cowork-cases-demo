@@ -1,0 +1,20 @@
+{
+  "assignment_id": "L1-02",
+  "answer_type": "date_obj",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "договоры/ПС-2026-17/допсоглашение_1_ПС-2026-17.docx",
+      "проекты/ПС-2026-17/заявки/заявка_З-8.pdf",
+      "регламенты/производственный_календарь_2026_выписка.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "date": "2026-05-08"
+    }
+  }
+}
