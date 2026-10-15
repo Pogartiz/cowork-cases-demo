@@ -1,0 +1,11 @@
+{
+  "assignment_id": "L1-04",
+  "answer_type": "refusal",
+  "skill": "refusal",
+  "source_policy": "skip",
+  "sort": "none",
+  "expected": {
+    "refused": true,
+    "answer": null
+  }
+}

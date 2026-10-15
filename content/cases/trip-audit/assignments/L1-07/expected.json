@@ -1,0 +1,26 @@
+{
+  "assignment_id": "L1-07",
+  "answer_type": "amount_rub",
+  "skill": "multi_format",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "reports/авансовый_отчет_Колесов.csv"
+    ],
+    [
+      "reports/авансовый_отчет_Колесов.csv",
+      "orders/Решение_о_командировании_Колесов.xlsx"
+    ],
+    [
+      "reports/авансовый_отчет_Колесов.csv",
+      "reports/Реестр_расходов_по_командировке.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "amount": 75550
+    }
+  }
+}

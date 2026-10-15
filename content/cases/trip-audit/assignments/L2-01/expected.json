@@ -1,0 +1,21 @@
+{
+  "assignment_id": "L2-01",
+  "answer_type": "artifact",
+  "skill": "artifact_reconciliation",
+  "source_policy": "skip",
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": null
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": null
+    },
+    "B": {
+      "refused": false,
+      "answer": null
+    }
+  }
+}

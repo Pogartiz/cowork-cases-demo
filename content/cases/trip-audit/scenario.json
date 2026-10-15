@@ -1,0 +1,214 @@
+{
+  "case_id": "trip-audit",
+  "cutoff_date": "2026-06-30",
+  "cutoff_date_display": "30.06.2026",
+  "organization": "ООО «НеоВектор»",
+  "inn": "7701234568",
+  "kpp": "770101001",
+  "address": "г. Москва, ул. Лабораторная, д. 12",
+  "phone": "+7 (495) 120-45-67",
+  "email": "office@neovektor.example",
+  "director": "Семёнов П.А.",
+  "employee": {
+    "full_name": "Колесов Д.Э.",
+    "last_name": "Колесов",
+    "initials": "Д.Э."
+  },
+  "application_signer": {
+    "full_name": "Иванов И.И.",
+    "title": "заведующий лабораторией"
+  },
+  "regulation": {
+    "v1": {
+      "date": "10.01.2024",
+      "taxi_limit": 500,
+      "clause_4_2": "П. 4.2. Такси возмещается при наличии чека; лимит — не более 500 руб. за одну поездку."
+    },
+    "v2": {
+      "date": "15.05.2026",
+      "effective_from": "01.06.2026",
+      "taxi_limit": 1000,
+      "clause_4_2": "П. 4.2. Такси возмещается в полном объёме при наличии скана чека и если сумма не превышает 1 000 руб. за одну поездку.",
+      "clause_5_1_requirement_a": "П. 5.1. Заявление на командировку должно быть подписано руководителем группы.",
+      "clause_5_1_requirement_b": "П. 5.1. Заявление на командировку должно быть подписано руководителем подразделения.",
+      "lab_head_authority": "Заведующий лабораторией обладает полномочиями руководителя группы."
+    },
+    "order": {
+      "number": "118",
+      "date": "15.05.2026",
+      "apply_from": "01.06.2026",
+      "path": "regulations/Приказ_об_утверждении_v2.pdf"
+    }
+  },
+  "trip": {
+    "employee": "Колесов Д.Э.",
+    "destination": "Шэньчжэнь",
+    "date_from": "01.06.2026",
+    "date_to": "07.06.2026",
+    "hotel_nights_from": "01.06.2026",
+    "hotel_nights_to": "06.06.2026",
+    "hotel_limit": 38490,
+    "per_diem_days": 5,
+    "per_diem_rate_foreign": 7500,
+    "per_diem_rate_russia": 2500,
+    "per_diem_total": 37500,
+    "purpose": "встреча с Shenzhen BioTech Ltd."
+  },
+  "expenses": {
+    "hotel": 37200,
+    "per_diem": 37500,
+    "taxi": 850,
+    "total": 75550
+  },
+  "advance": 136353,
+  "remainder": 60803,
+  "twin_kolosov": {
+    "employee": "Колосов А.А.",
+    "destination": "Казань",
+    "hotel_limit": 25000,
+    "advance": 82000,
+    "remainder": 11400,
+    "hotel_actual": 24300,
+    "expense_total": 71300
+  },
+  "distractors": {
+    "kozlov": {
+      "employee": "Козлов М.В.",
+      "destination": "Гуанчжоу",
+      "hotel_limit": 41000,
+      "hotel_shenzhen": 39900,
+      "expense_total": 81300,
+      "ticket_class": "бизнес"
+    },
+    "kolesov_2025": {
+      "destination": "Пекин",
+      "year": 2025,
+      "taxi": 1450,
+      "note": "архивная командировка 2025"
+    },
+    "kolesov_moscow": {
+      "destination": "Москва",
+      "note": "однодневная встреча"
+    },
+    "restaurant": {"payee": "Колосов А.А.", "amount": 3200},
+    "taxi_kolosov": {"payee": "Колосов А.А.", "amount": 1200},
+    "cafe": {"amount": 1150},
+    "mobile": {"amount": 2400},
+    "conference_budget": 155000
+  },
+  "taxi_scan": {
+    "filename": "scans/Скан_чека_такси_аэропорт.jpg",
+    "amount": 850,
+    "date": "07.06.2026",
+    "card_mask": "**** **** **** 8841",
+    "card_last4": "8841",
+    "facts_text_only_on_scan": [
+      "8841",
+      "**** **** **** 8841",
+      "**** **** ****8841",
+      "**** **** ****  8841"
+    ]
+  },
+  "jpg_scans": [
+    {
+      "path": "scans/Скан_чека_такси_аэропорт.jpg",
+      "kind": "airport_taxi",
+      "amount": 850,
+      "date": "07.06.2026",
+      "payee": "Колесов Д.Э.",
+      "include_card_8841": true
+    },
+    {
+      "path": "scans/Чек_такси_Колесов_2025.jpg",
+      "kind": "taxi",
+      "amount": 1450,
+      "date": "18.06.2025",
+      "payee": "Колесов Д.Э.",
+      "include_card_8841": false,
+      "card_last4": "2209"
+    },
+    {
+      "path": "scans/Чек_ресторан_Шэньчжэнь_01.jpg",
+      "kind": "restaurant",
+      "amount": 3200,
+      "date": "02.06.2026",
+      "payee": "Колосов А.А.",
+      "include_card_8841": false,
+      "card_last4": "5512"
+    },
+    {
+      "path": "scans/Чек_такси_Шэньчжэнь_Колосов.jpg",
+      "kind": "taxi",
+      "amount": 1200,
+      "date": "03.06.2026",
+      "payee": "Колосов А.А.",
+      "include_card_8841": false,
+      "card_last4": "7730"
+    },
+    {
+      "path": "scans/Чек_кафе_Колесов_Шэньчжэнь.jpg",
+      "kind": "cafe",
+      "amount": 1150,
+      "date": "04.06.2026",
+      "payee": "Колесов Д.Э.",
+      "include_card_8841": false,
+      "card_last4": "1198"
+    }
+  ],
+  "gaps": {
+    "no_ticket_kolesov": true
+  },
+  "minimal_pair": {
+    "file": "regulations/Регламент_командировок_v2.docx",
+    "replace_from": "П. 5.1. Заявление на командировку должно быть подписано руководителем группы.",
+    "replace_to": "П. 5.1. Заявление на командировку должно быть подписано руководителем подразделения.",
+    "unchanged_authority": "Заведующий лабораторией обладает полномочиями руководителя группы.",
+    "affects_assignments": ["L2-01", "L2-03"]
+  },
+  "noise_forbidden_tokens": [
+    "8841",
+    "**** **** **** 8841"
+  ],
+  "document_paths": [
+    "regulations/Регламент_командировок_v1.docx",
+    "regulations/Регламент_командировок_v2.docx",
+    "regulations/Приказ_об_утверждении_v2.pdf",
+    "orders/Решение_о_командировании_Колесов.xlsx",
+    "orders/Решение_о_командировании_Колосов.xlsx",
+    "reports/авансовый_отчет_Колесов.csv",
+    "scans/Скан_чека_такси_аэропорт.jpg",
+    "orders/Заявление_на_командировку.docx",
+    "finance/Платежное_поручение_выдача_аванса.xlsx",
+    "finance/Выписка_по_подотчету_Колесов.xlsx",
+    "orders/Служебное_задание_Колесов.pdf",
+    "finance/Расчет_суточных_Колесов.xlsx",
+    "hotel/Счет_отеля_Шэньчжэнь.pdf",
+    "hotel/Подтверждение_бронирования_Шэньчжэнь.pdf",
+    "reports/Реестр_расходов_по_командировке.xlsx",
+    "scans/Авансовый_отчет_Колесов_2025.csv",
+    "scans/Чек_такси_Колесов_2025.jpg",
+    "scans/Регламент_отпусков_v3.docx",
+    "scans/Положение_о_больничных.docx",
+    "scans/Чек_ресторан_Шэньчжэнь_01.jpg",
+    "scans/Чек_такси_Шэньчжэнь_Колосов.jpg",
+    "scans/Решение_о_командировании_Козлов.xlsx",
+    "scans/Решение_о_командировании_Колесов_Москва.xlsx",
+    "scans/Платежное_поручение_аванс_Колосов.xlsx",
+    "scans/Выписка_по_подотчету_Колосов.xlsx",
+    "scans/Счет_отеля_Казань_Колосов.pdf",
+    "scans/Счет_отеля_Шэньчжэнь_Козлов.pdf",
+    "scans/Билет_Козлов_Шэньчжэнь.pdf",
+    "scans/Билет_Колосов_Казань.pdf",
+    "scans/Приказ_об_утверждении_отпусков.pdf",
+    "scans/Регламент_служебного_автотранспорта_v1.docx",
+    "scans/Авансовый_отчет_Козлов.csv",
+    "scans/Реестр_расходов_Казань.xlsx",
+    "scans/Чек_кафе_Колесов_Шэньчжэнь.jpg",
+    "scans/Счет_мобильной_связи_Колесов.pdf",
+    "scans/Служебная_записка_Казань.pdf",
+    "scans/Смета_конференция_Шэньчжэнь.xlsx",
+    "scans/План_поездки_Колесов.docx",
+    "scans/Сверка_авансов_май_2026.xlsx",
+    "scans/Регламент_архивирования_документов.docx"
+  ]
+}

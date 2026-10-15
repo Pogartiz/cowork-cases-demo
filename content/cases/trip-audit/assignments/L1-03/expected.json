@@ -1,0 +1,22 @@
+{
+  "assignment_id": "L1-03",
+  "answer_type": "card_last4",
+  "skill": "vision",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "scans/Скан_чека_такси_аэропорт.jpg"
+    ],
+    [
+      "scans/Скан_чека_такси_аэропорт.jpg",
+      "reports/авансовый_отчет_Колесов.csv"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "last4": "8841"
+    }
+  }
+}

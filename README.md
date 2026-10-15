@@ -45,7 +45,7 @@ npm run preview
 | komandirovki-K24-audit | live | без тура; A/B на L1-03/05, L2-01/02/04; preview pdf/xlsx/docx |
 | lab-sample-qc-release | live | без тура; A/B на L1-02/05, L2-01…04; preview pdf/xlsx/docx/csv |
 | supply-contract-PS17-claims | live | без тура; A/B на L1-04/05, L2-01/02/04; preview pdf/xlsx/docx |
-| trip_audit | stub | карточка «скоро» |
+| trip-audit | live | без тура; A/B на L2-01/L2-03; preview pdf/xlsx/docx/jpg |
 
 ## Контент
 
@@ -54,7 +54,7 @@ content/
   catalog.json
   cases/<case-id>/
     workspace/
-    workspace_variants/   # A/B overlays (baf, k24, lab, ps17)
+    workspace_variants/   # A/B overlays (baf, k24, lab, ps17, trip)
     assignments/
     demo_meta.json
     derived/l2_preview.json
@@ -66,4 +66,4 @@ content/
 python3 tools/build_demo_content.py
 ```
 
-L2 derive для baf/k24/lab читает канон `…/cowork_cases/office/<case>/lib/l2_expected.py`.
+L2 derive для baf/k24/lab/sup/trip читает канон `…/cowork_cases/office/<case>/lib/l2_expected.py`.

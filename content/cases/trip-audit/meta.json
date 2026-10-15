@@ -1,0 +1,46 @@
+{
+  "case_id": "trip-audit",
+  "domain": "office",
+  "cutoff_date": "2026-06-30",
+  "organization": "ООО «НеоВектор»",
+  "assignment_counts": { "L1": 8, "L2": 4, "total": 12 },
+  "traps": {
+    "versions": true,
+    "distractor_twin": true,
+    "rule_in_text": true,
+    "scan_only_fact": true,
+    "unanswerable": true,
+    "minimal_pairs": true
+  },
+  "unanswerable_assignments": ["L1-04"],
+  "incomplete_article_assignments": ["L2-01"],
+  "vision_assignments": ["L1-03"],
+  "scan_assisted_assignments": ["L1-05", "L2-01", "L2-02"],
+  "minimal_pair_affects": ["L2-01", "L2-03"],
+  "skills": [
+    "versions",
+    "rules",
+    "retrieval",
+    "multi_format",
+    "refusal",
+    "vision",
+    "artifact_reconciliation",
+    "artifact_report",
+    "artifact_limits",
+    "artifact_brief"
+  ],
+  "instruction_id_map": {
+    "L1-01": "L1-01",
+    "L1-02": "L1-02",
+    "L1-03": "L1-03",
+    "L1-04": "L1-04",
+    "L1-05": "L1-05",
+    "L1-06": "L1-06",
+    "L1-07": "L1-07",
+    "L1-08": "L1-08",
+    "L2-01": "L2-09",
+    "L2-02": "L2-10",
+    "L2-03": "L2-11",
+    "L2-04": "L2-12"
+  }
+}

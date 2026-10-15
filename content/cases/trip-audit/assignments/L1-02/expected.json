@@ -1,0 +1,22 @@
+{
+  "assignment_id": "L1-02",
+  "answer_type": "amount_rub",
+  "skill": "retrieval",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "orders/Решение_о_командировании_Колесов.xlsx"
+    ],
+    [
+      "orders/Решение_о_командировании_Колесов.xlsx",
+      "hotel/Подтверждение_бронирования_Шэньчжэнь.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "amount": 38490
+    }
+  }
+}

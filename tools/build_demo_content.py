@@ -1089,6 +1089,228 @@ def build_sup_l2_preview(case_dir: Path) -> dict[str, Any]:
     return out
 
 
+TRIP_SHORTS = {
+    "L1-01": "Лимит такси (регламент v2)",
+    "L1-02": "Лимит проживания",
+    "L1-03": "Карта ****8841 (скан)",
+    "L1-04": "Класс билета (отказ)",
+    "L1-05": "К возмещению по такси",
+    "L1-06": "Сумма суточных",
+    "L1-07": "Итого расходов",
+    "L1-08": "Остаток аванса",
+    "L2-01": "Сверка командировки.xlsx",
+    "L2-02": "evidence_expenses.csv",
+    "L2-03": "violations.csv",
+    "L2-04": "Папка final_Kolesov",
+}
+
+TRIP_TRAPS = {
+    "L1-01": "versions",
+    "L1-03": "scan_only_fact",
+    "L1-04": "unanswerable",
+    "L1-05": "rule_in_text",
+    "L1-08": "distractor_twin",
+    "L2-01": "minimal_pair",
+    "L2-03": "minimal_pair",
+}
+
+TRIP_VARIANT_AIDS = ("L2-01", "L2-03")
+TRIP_VARIANT_FILE = "regulations/Регламент_командировок_v2.docx"
+TRIP_ASSIGNMENT_IDS = [
+    "L1-01",
+    "L1-02",
+    "L1-03",
+    "L1-04",
+    "L1-05",
+    "L1-06",
+    "L1-07",
+    "L1-08",
+    "L2-01",
+    "L2-02",
+    "L2-03",
+    "L2-04",
+]
+
+
+def build_trip_demo_meta(case_dir: Path) -> dict[str, Any]:
+    meta = json.loads((case_dir / "meta.json").read_text(encoding="utf-8"))
+    assignments = []
+    for aid in TRIP_ASSIGNMENT_IDS:
+        exp_path = case_dir / "assignments" / aid / "expected.json"
+        exp = json.loads(exp_path.read_text(encoding="utf-8")) if exp_path.exists() else {}
+        level = "L1" if aid.startswith("L1") else "L2"
+        assignments.append(
+            {
+                "id": aid,
+                "level": level,
+                "skill": exp.get("skill") or ("artifact" if level == "L2" else "retrieval"),
+                "trap": TRIP_TRAPS.get(aid),
+                "short": TRIP_SHORTS.get(aid, aid),
+                "has_variants": aid in TRIP_VARIANT_AIDS,
+            }
+        )
+    return {
+        "title": "Аудит командировочных",
+        "case_id": "trip-audit",
+        "cutoff_date": meta["cutoff_date"],
+        "organization": meta.get("organization", ""),
+        "default_mode": "agent",
+        "eval_mode": "simple",
+        "tour": [],
+        "variant_files": [TRIP_VARIANT_FILE],
+        "variant_hint": {
+            "B": (
+                "Вариант B: в регламенте v2 п.5.1 «руководитель группы» → "
+                "«руководитель подразделения» (полномочие завлаба без изменений)."
+            )
+        },
+        "assignments": assignments,
+        "trap_labels": {
+            "versions": "Версии регламента",
+            "rule_in_text": "Правило в тексте",
+            "scan_only_fact": "Факт только со скана",
+            "unanswerable": "Неотвечаемый вопрос",
+            "minimal_pair": "Минимальная пара A/B",
+            "distractor_twin": "Дистрактор-двойник",
+            "retrieval": "Поиск",
+            "multi_format": "Мультиформат",
+            "artifact": "Артефакт",
+        },
+        "skill_labels": {
+            "versions": "Версии",
+            "rules": "Правила",
+            "retrieval": "Поиск",
+            "multi_format": "Мультиформат",
+            "refusal": "Отказ",
+            "vision": "Vision / скан",
+            "artifact_reconciliation": "Артефакт: сверка",
+            "artifact_report": "Артефакт: evidence",
+            "artifact_limits": "Артефакт: нарушения",
+            "artifact_brief": "Артефакт: final_Kolesov",
+            "artifact": "Артефакт",
+        },
+    }
+
+
+def build_trip_l2_preview(case_dir: Path) -> dict[str, Any]:
+    trip_root = str(CANON / "trip-audit")
+    if trip_root in sys.path:
+        sys.path.remove(trip_root)
+    sys.path.insert(0, trip_root)
+    for mod in list(sys.modules):
+        if mod == "lib" or mod.startswith("lib."):
+            del sys.modules[mod]
+    from lib.l2_expected import (  # type: ignore
+        L2_01_PATH,
+        L2_02_PATH,
+        L2_03_PATH,
+        L2_04_COPIES,
+        L2_04_DIR,
+        evidence_optional_per_diem,
+        evidence_required,
+        expense_rows,
+    )
+
+    scenario = json.loads((case_dir / "scenario.json").read_text(encoding="utf-8"))
+    rows = [
+        {
+            "key": r["key"],
+            "report": r["report"],
+            "confirmed": r["confirmed"],
+            "limit": r["limit"],
+            "reimburse": r["reimburse"],
+            "status_ok": r["status_ok"],
+        }
+        for r in expense_rows(scenario)
+    ]
+    ticket_row = {
+        "key": "ticket",
+        "report": None,
+        "confirmed": None,
+        "limit": None,
+        "reimburse": None,
+        "status_ok": False,
+        "status": "нет данных",
+    }
+    evidence = [
+        {"key": r["key"], "amount": r["amount"]} for r in evidence_required(scenario)
+    ]
+    per_diem = evidence_optional_per_diem(scenario)
+    violations_a = [
+        {
+            "нарушение": "Нет подтверждения авиабилета Колесова",
+            "доказательство": "в workspace отсутствует скан/файл билета",
+            "статус": "нет данных",
+        }
+    ]
+    violations_b = violations_a + [
+        {
+            "нарушение": "Заявление подписано не руководителем подразделения (п.5.1 v2)",
+            "доказательство": "regulations/Регламент_командировок_v2.docx + заявление",
+            "статус": "нарушение",
+        }
+    ]
+
+    return {
+        "L2-01": {
+            "artifact": L2_01_PATH,
+            "sheet": "Сверка",
+            "checklist": [
+                "Лист «Сверка»: Отель, Суточные, Такси + строка Билет («нет данных»)",
+                "Лист «Нарушения»: только подтверждённые отклонения",
+                "В варианте B на листе нарушений — подпись «руководитель подразделения»",
+            ],
+            "columns": [
+                "key",
+                "report",
+                "confirmed",
+                "limit",
+                "reimburse",
+                "status_ok",
+            ],
+            "by_variant": {
+                "A": {"rows": rows + [ticket_row], "violations": violations_a},
+                "B": {"rows": rows + [ticket_row], "violations": violations_b},
+            },
+        },
+        "L2-02": {
+            "artifact": L2_02_PATH,
+            "checklist": [
+                "CSV: статья, сумма_руб, файл_подтверждения, статус",
+                "Обязательны отель и такси (аэропорт); суточные — optional (2 или 3 строки)",
+                "Билет и регламенты не включать",
+            ],
+            "required": evidence,
+            "optional_per_diem": {
+                "key": per_diem["key"],
+                "amount": per_diem["amount"],
+            },
+        },
+        "L2-03": {
+            "artifact": L2_03_PATH,
+            "checklist": [
+                "CSV: нарушение, доказательство, статус",
+                "Всегда: отсутствие билета Колесова",
+                "Вариант B: дополнительно нарушение п.5.1 (подпись подразделения)",
+            ],
+            "columns": ["нарушение", "доказательство", "статус"],
+            "by_variant": {
+                "A": {"rows": violations_a},
+                "B": {"rows": violations_b},
+            },
+        },
+        "L2-04": {
+            "artifact": L2_04_DIR + "/",
+            "checklist": [
+                "Скопировать (не перемещать) 3 файла в output/final_Kolesov/",
+                "Имена: Счет_отеля_Шэньчжэнь.pdf, Скан_чека_такси_аэропорт.jpg, Расчет_суточных_Колесов.xlsx",
+                "SHA совпадают с исходниками; лишних файлов нет",
+            ],
+            "copies": dict(L2_04_COPIES),
+        },
+    }
+
+
 def build_catalog() -> dict[str, Any]:
     cases = []
 
@@ -1100,17 +1322,6 @@ def build_catalog() -> dict[str, Any]:
             "cutoff_date": cutoff,
             "status": "live",
             "assignment_counts": counts,
-        }
-
-    def stub(case_id: str) -> dict:
-        m = json.loads((CANON / case_id / "meta.json").read_text(encoding="utf-8"))
-        return {
-            "id": case_id,
-            "title": case_id,
-            "organization": m.get("organization", ""),
-            "cutoff_date": m.get("cutoff_date", ""),
-            "status": "stub",
-            "assignment_counts": m.get("assignment_counts", {}),
         }
 
     c_meta = json.loads(
@@ -1167,15 +1378,16 @@ def build_catalog() -> dict[str, Any]:
             sup_meta["assignment_counts"],
         )
     )
-    for cid in ("trip_audit",):
-        cases.append(stub(cid))
-
-    titles = {
-        "trip_audit": "Аудит командировочных",
-    }
-    for c in cases:
-        if c["id"] in titles:
-            c["title"] = titles[c["id"]]
+    trip_meta = json.loads((CASES / "trip-audit" / "meta.json").read_text(encoding="utf-8"))
+    cases.append(
+        live(
+            "trip-audit",
+            "Аудит командировочных",
+            trip_meta.get("organization", ""),
+            trip_meta["cutoff_date"],
+            trip_meta["assignment_counts"],
+        )
+    )
 
     return {
         "title": "Cowork cases demo",
@@ -1203,6 +1415,7 @@ def main() -> None:
         "komandirovki-K24-audit",
         "lab-sample-qc-release",
         "supply-contract-PS17-claims",
+        "trip-audit",
     ):
         case_dir = CASES / case_id
         tree = build_tree(case_dir / "workspace")
@@ -1230,13 +1443,18 @@ def main() -> None:
     write_json(sup / "derived" / "l2_preview.json", build_sup_l2_preview(sup))
     write_json(sup / "derived" / "file_previews.json", build_file_previews(sup))
 
+    trip = CASES / "trip-audit"
+    write_json(trip / "demo_meta.json", build_trip_demo_meta(trip))
+    write_json(trip / "derived" / "l2_preview.json", build_trip_l2_preview(trip))
+    write_json(trip / "derived" / "file_previews.json", build_file_previews(trip))
+
     # Committee also gets empty previews map (md/png handled in app)
     write_json(
         CASES / "committee-decisions-register" / "derived" / "file_previews.json",
         {},
     )
 
-    print("OK: catalog, trees, baf+k24+lab+sup demo_meta, l2_preview, file_previews")
+    print("OK: catalog, trees, baf+k24+lab+sup+trip demo_meta, l2_preview, file_previews")
 
 
 if __name__ == "__main__":

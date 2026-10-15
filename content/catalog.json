@@ -63,11 +63,11 @@
       }
     },
     {
-      "id": "trip_audit",
+      "id": "trip-audit",
       "title": "Аудит командировочных",
       "organization": "ООО «НеоВектор»",
       "cutoff_date": "2026-06-30",
-      "status": "stub",
+      "status": "live",
       "assignment_counts": {
         "L1": 8,
         "L2": 4,

@@ -1,0 +1,137 @@
+{
+  "title": "Аудит командировочных",
+  "case_id": "trip-audit",
+  "cutoff_date": "2026-06-30",
+  "organization": "ООО «НеоВектор»",
+  "default_mode": "agent",
+  "eval_mode": "simple",
+  "tour": [],
+  "variant_files": [
+    "regulations/Регламент_командировок_v2.docx"
+  ],
+  "variant_hint": {
+    "B": "Вариант B: в регламенте v2 п.5.1 «руководитель группы» → «руководитель подразделения» (полномочие завлаба без изменений)."
+  },
+  "assignments": [
+    {
+      "id": "L1-01",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "Лимит такси (регламент v2)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-02",
+      "level": "L1",
+      "skill": "retrieval",
+      "trap": null,
+      "short": "Лимит проживания",
+      "has_variants": false
+    },
+    {
+      "id": "L1-03",
+      "level": "L1",
+      "skill": "vision",
+      "trap": "scan_only_fact",
+      "short": "Карта ****8841 (скан)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-04",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Класс билета (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-05",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "rule_in_text",
+      "short": "К возмещению по такси",
+      "has_variants": false
+    },
+    {
+      "id": "L1-06",
+      "level": "L1",
+      "skill": "retrieval",
+      "trap": null,
+      "short": "Сумма суточных",
+      "has_variants": false
+    },
+    {
+      "id": "L1-07",
+      "level": "L1",
+      "skill": "multi_format",
+      "trap": null,
+      "short": "Итого расходов",
+      "has_variants": false
+    },
+    {
+      "id": "L1-08",
+      "level": "L1",
+      "skill": "artifact_reconciliation",
+      "trap": "distractor_twin",
+      "short": "Остаток аванса",
+      "has_variants": false
+    },
+    {
+      "id": "L2-01",
+      "level": "L2",
+      "skill": "artifact_reconciliation",
+      "trap": "minimal_pair",
+      "short": "Сверка командировки.xlsx",
+      "has_variants": true
+    },
+    {
+      "id": "L2-02",
+      "level": "L2",
+      "skill": "artifact_report",
+      "trap": null,
+      "short": "evidence_expenses.csv",
+      "has_variants": false
+    },
+    {
+      "id": "L2-03",
+      "level": "L2",
+      "skill": "artifact_limits",
+      "trap": "minimal_pair",
+      "short": "violations.csv",
+      "has_variants": true
+    },
+    {
+      "id": "L2-04",
+      "level": "L2",
+      "skill": "artifact_brief",
+      "trap": null,
+      "short": "Папка final_Kolesov",
+      "has_variants": false
+    }
+  ],
+  "trap_labels": {
+    "versions": "Версии регламента",
+    "rule_in_text": "Правило в тексте",
+    "scan_only_fact": "Факт только со скана",
+    "unanswerable": "Неотвечаемый вопрос",
+    "minimal_pair": "Минимальная пара A/B",
+    "distractor_twin": "Дистрактор-двойник",
+    "retrieval": "Поиск",
+    "multi_format": "Мультиформат",
+    "artifact": "Артефакт"
+  },
+  "skill_labels": {
+    "versions": "Версии",
+    "rules": "Правила",
+    "retrieval": "Поиск",
+    "multi_format": "Мультиформат",
+    "refusal": "Отказ",
+    "vision": "Vision / скан",
+    "artifact_reconciliation": "Артефакт: сверка",
+    "artifact_report": "Артефакт: evidence",
+    "artifact_limits": "Артефакт: нарушения",
+    "artifact_brief": "Артефакт: final_Kolesov",
+    "artifact": "Артефакт"
+  }
+}

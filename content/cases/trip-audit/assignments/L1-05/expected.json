@@ -1,0 +1,30 @@
+{
+  "assignment_id": "L1-05",
+  "answer_type": "amount_rub",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "regulations/Приказ_об_утверждении_v2.pdf",
+      "regulations/Регламент_командировок_v2.docx",
+      "scans/Скан_чека_такси_аэропорт.jpg"
+    ],
+    [
+      "regulations/Регламент_командировок_v2.docx",
+      "scans/Скан_чека_такси_аэропорт.jpg"
+    ],
+    [
+      "regulations/Приказ_об_утверждении_v2.pdf",
+      "regulations/Регламент_командировок_v2.docx",
+      "scans/Скан_чека_такси_аэропорт.jpg",
+      "reports/авансовый_отчет_Колесов.csv"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "amount": 850
+    }
+  }
+}

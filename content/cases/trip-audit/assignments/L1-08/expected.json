@@ -1,0 +1,27 @@
+{
+  "assignment_id": "L1-08",
+  "answer_type": "amount_rub",
+  "skill": "artifact_reconciliation",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "finance/Платежное_поручение_выдача_аванса.xlsx",
+      "reports/авансовый_отчет_Колесов.csv"
+    ],
+    [
+      "finance/Платежное_поручение_выдача_аванса.xlsx",
+      "reports/авансовый_отчет_Колесов.csv",
+      "finance/Выписка_по_подотчету_Колесов.xlsx"
+    ],
+    [
+      "finance/Выписка_по_подотчету_Колесов.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "amount": 60803
+    }
+  }
+}

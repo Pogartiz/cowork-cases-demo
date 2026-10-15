@@ -1,0 +1,25 @@
+{
+  "assignment_id": "L1-06",
+  "answer_type": "amount_rub",
+  "skill": "retrieval",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "orders/Решение_о_командировании_Колесов.xlsx"
+    ],
+    [
+      "orders/Решение_о_командировании_Колесов.xlsx",
+      "finance/Расчет_суточных_Колесов.xlsx"
+    ],
+    [
+      "finance/Расчет_суточных_Колесов.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "amount": 37500
+    }
+  }
+}
