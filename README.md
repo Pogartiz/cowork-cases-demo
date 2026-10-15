@@ -2,7 +2,7 @@
 
 Каталог интерактивных snapshot-кейсов Cowork для коллег.
 
-Живые кейсы: **Реестр решений комитетов**, **BAF project**. Остальные из `ru_cowork_local` — заглушки «скоро».
+Живые кейсы: **Реестр решений комитетов**, **BAF project**, **Командировки K24**, **QC-релиз лабораторных проб**. Остальные из `ru_cowork_local` — заглушки «скоро».
 
 **Snapshot** из канона Toolathlon (`cowork_cases/office/…`). Live-sync с пайплайном нет.
 
@@ -16,7 +16,7 @@ https://pogartiz.github.io/cowork-cases-demo/
 
 ```bash
 npm install
-npm run content   # пересборка catalog / trees / previews / baf L2
+npm run content   # пересборка catalog / trees / previews / L2 (baf, k24, lab)
 npm run dev
 ```
 
@@ -43,7 +43,8 @@ npm run preview
 | committee-decisions-register | live | тур 5 шагов, сверка L1 как в харнессе |
 | baf-project | live | без тура; A/B на L1-05/L2-02; preview xlsx/docx |
 | komandirovki-K24-audit | live | без тура; A/B на L1-03/05, L2-01/02/04; preview pdf/xlsx/docx |
-| lab-sample-qc-release и др. | stub | карточка «скоро» |
+| lab-sample-qc-release | live | без тура; A/B на L1-02/05, L2-01…04; preview pdf/xlsx/docx/csv |
+| supply-contract-PS17-claims, trip_audit | stub | карточка «скоро» |
 
 ## Контент
 
@@ -52,7 +53,7 @@ content/
   catalog.json
   cases/<case-id>/
     workspace/
-    workspace_variants/   # baf A/B overlays
+    workspace_variants/   # A/B overlays (baf, k24, lab)
     assignments/
     demo_meta.json
     derived/l2_preview.json
@@ -64,4 +65,4 @@ content/
 python3 tools/build_demo_content.py
 ```
 
-Для baf L2 derive читает канон `…/cowork_cases/office/baf-project/lib/l2_expected.py`.
+L2 derive для baf/k24/lab читает канон `…/cowork_cases/office/<case>/lib/l2_expected.py`.

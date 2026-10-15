@@ -43,7 +43,7 @@
       "title": "QC-релиз лабораторных проб",
       "organization": "НИИ «Биогеном»",
       "cutoff_date": "2026-09-30",
-      "status": "stub",
+      "status": "live",
       "assignment_counts": {
         "L1": 8,
         "L2": 4,

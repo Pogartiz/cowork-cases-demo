@@ -1,0 +1,25 @@
+{
+  "assignment_id": "L1-07",
+  "answer_type": "reagent_lot",
+  "skill": "versions",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "реагенты/CoA_набор_библиотек_лот_L-4471_исправленный.pdf",
+      "реагенты/уведомление_производителя_об_исправлении_CoA.pdf"
+    ],
+    [
+      "реагенты/CoA_набор_библиотек_лот_L-4471.pdf",
+      "реагенты/CoA_набор_библиотек_лот_L-4471_исправленный.pdf",
+      "реагенты/уведомление_производителя_об_исправлении_CoA.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "suitable": false,
+      "expiry": "2026-09-20"
+    }
+  }
+}

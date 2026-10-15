@@ -147,8 +147,15 @@ def build_file_previews(case_dir: Path) -> dict[str, Any]:
                     continue
                 rel = str(path.relative_to(vdir)).replace("\\", "/")
                 key = f"variant:{var}:{rel}"
-                if path.suffix.lower() == ".xlsx":
+                suf = path.suffix.lower()
+                if suf == ".xlsx":
                     p = xlsx_preview(path)
+                    if p:
+                        previews[key] = p
+                elif suf == ".csv":
+                    previews[key] = csv_preview(path)
+                elif suf == ".docx":
+                    p = docx_preview(path)
                     if p:
                         previews[key] = p
     return previews
@@ -600,6 +607,222 @@ def build_k24_l2_preview(case_dir: Path) -> dict[str, Any]:
     return out
 
 
+
+LAB_SHORTS = {
+    "L1-01": "СОП-07 и нижняя граница A260/280",
+    "L1-02": "Концентрация S-014 по Qubit",
+    "L1-03": "Час приёма партии B (скан)",
+    "L1-04": "Масса ДНК S-012 по СОП",
+    "L1-05": "Допуск S-014 по СОП",
+    "L1-06": "Допуск S-016 (отказ)",
+    "L1-07": "Лот L-4471 и срок CoA",
+    "L1-08": "Макс. температура транспорта S-015 (отказ)",
+    "L2-01": "Допуск образцов МТБ-26.xlsx",
+    "L2-02": "Отчёт допуск R-09.docx",
+    "L2-03": "Влияние смены СОП.xlsx",
+    "L2-04": "Планёрка R-09.pptx",
+}
+
+LAB_TRAPS = {
+    "L1-01": "versions",
+    "L1-02": "minimal_pair",
+    "L1-03": "scan_only_fact",
+    "L1-04": "rule_in_text",
+    "L1-05": "minimal_pair",
+    "L1-06": "unanswerable",
+    "L1-07": "distractor_twin",
+    "L1-08": "unanswerable",
+    "L2-01": "minimal_pair",
+    "L2-02": "minimal_pair",
+    "L2-03": "minimal_pair",
+    "L2-04": "minimal_pair",
+}
+
+LAB_VARIANT_AIDS = ("L1-02", "L1-05", "L2-01", "L2-02", "L2-03", "L2-04")
+LAB_VARIANT_FILE = "приборы/qubit_export_2026-09-22.csv"
+LAB_ASSIGNMENT_IDS = [
+    "L1-01",
+    "L1-02",
+    "L1-03",
+    "L1-04",
+    "L1-05",
+    "L1-06",
+    "L1-07",
+    "L1-08",
+    "L2-01",
+    "L2-02",
+    "L2-03",
+    "L2-04",
+]
+
+
+def build_lab_demo_meta(case_dir: Path) -> dict[str, Any]:
+    meta = json.loads((case_dir / "meta.json").read_text(encoding="utf-8"))
+    assignments = []
+    for aid in LAB_ASSIGNMENT_IDS:
+        exp_path = case_dir / "assignments" / aid / "expected.json"
+        exp = json.loads(exp_path.read_text(encoding="utf-8")) if exp_path.exists() else {}
+        level = "L1" if aid.startswith("L1") else "L2"
+        assignments.append(
+            {
+                "id": aid,
+                "level": level,
+                "skill": exp.get("skill") or ("artifact" if level == "L2" else "retrieval"),
+                "trap": LAB_TRAPS.get(aid),
+                "short": LAB_SHORTS.get(aid, aid),
+                "has_variants": aid in LAB_VARIANT_AIDS,
+            }
+        )
+    return {
+        "title": "QC-релиз лабораторных проб",
+        "case_id": "lab-sample-qc-release",
+        "cutoff_date": meta["cutoff_date"],
+        "organization": meta.get("organization", ""),
+        "default_mode": "agent",
+        "eval_mode": "simple",
+        "tour": [],
+        "variant_files": [LAB_VARIANT_FILE],
+        "variant_hint": {
+            "B": "Вариант B: в Qubit S-014 концентрация 15.0 → 14.9 нг/мкл."
+        },
+        "assignments": assignments,
+        "trap_labels": {
+            "versions": "Версии СОП/CoA",
+            "rule_in_text": "Правило в СОП",
+            "scan_only_fact": "Факт только со скана",
+            "unanswerable": "Неотвечаемый вопрос",
+            "minimal_pair": "Минимальная пара A/B",
+            "distractor_twin": "Дистрактор-двойник",
+        },
+        "skill_labels": {
+            "versions": "Версии",
+            "rules": "Правила",
+            "retrieval": "Поиск",
+            "multi_format": "Мультиформат",
+            "refusal": "Отказ",
+            "vision": "Vision / скан",
+            "artifact_reconciliation": "Артефакт: допуск",
+            "artifact_report": "Артефакт: отчёт",
+            "artifact_limits": "Артефакт: влияние СОП",
+            "artifact_brief": "Артефакт: презентация",
+            "artifact": "Артефакт",
+        },
+    }
+
+
+def build_lab_l2_preview(case_dir: Path) -> dict[str, Any]:
+    lab_root = str(CANON / "lab-sample-qc-release")
+    if lab_root in sys.path:
+        sys.path.remove(lab_root)
+    sys.path.insert(0, lab_root)
+    for mod in list(sys.modules):
+        if mod == "lib" or mod.startswith("lib."):
+            del sys.modules[mod]
+    from lib.l2_expected import (  # type: ignore
+        admission_rows,
+        changed_count,
+        coa_expiry,
+        compare_rows,
+        exclusion_rows,
+        summary_counts,
+        transport_a_range,
+    )
+
+    scenario = json.loads((case_dir / "scenario.json").read_text(encoding="utf-8"))
+
+    def adm_rows(variant: str) -> list[dict[str, Any]]:
+        return [
+            {
+                "id": r["id"],
+                "qubit": r["qubit"],
+                "a260_280": r["a260_280"],
+                "volume_ul": r["volume_ul"],
+                "mass": r["mass"],
+                "verdict": r["verdict"],
+            }
+            for r in admission_rows(scenario, variant, "v2")
+        ]
+
+    def excl_rows(variant: str) -> list[dict[str, Any]]:
+        return exclusion_rows(scenario, variant)
+
+    def cmp_rows(variant: str) -> list[dict[str, Any]]:
+        return compare_rows(scenario, variant)
+
+    tmin, tmax = transport_a_range(scenario)
+    out: dict[str, Any] = {
+        "L2-01": {
+            "artifact": "output/допуск_образцов_МТБ-26.xlsx",
+            "sheet": "Допуск",
+            "checklist": [
+                "Лист допуска 6 образцов МТБ-26; масса и флаги — формулы",
+                "Лист «Исключения»: не допущенные / нет данных",
+                "Qubit S-014 зависит от варианта A/B (15.0 vs 14.9)",
+            ],
+            "columns": ["id", "qubit", "a260_280", "volume_ul", "mass", "verdict"],
+            "by_variant": {
+                "A": {"rows": adm_rows("A"), "exclusions": excl_rows("A")},
+                "B": {"rows": adm_rows("B"), "exclusions": excl_rows("B")},
+            },
+        },
+        "L2-02": {
+            "artifact": "output/отчет_допуск_R-09.docx",
+            "checklist": [
+                "Разделы: Методика, Результаты допуска, Исключения, Ограничения данных, Готовность к R-09",
+                "Методика: СОП-07 v2",
+                "Числа допуска/исключений зависят от A/B",
+            ],
+            "by_variant": {
+                "A": {
+                    "summary": summary_counts(scenario, "A"),
+                    "exclusions": excl_rows("A"),
+                    "coa_expiry": coa_expiry(scenario),
+                },
+                "B": {
+                    "summary": summary_counts(scenario, "B"),
+                    "exclusions": excl_rows("B"),
+                    "coa_expiry": coa_expiry(scenario),
+                },
+            },
+        },
+        "L2-03": {
+            "artifact": "output/влияние_СОП_МТБ-26.xlsx",
+            "sheet": "Сравнение",
+            "checklist": [
+                "Лист «Пороги»: параметры v1 vs v2",
+                "Лист сравнения вердиктов по образцам; флаги изменений — формулы",
+                "Число сменивших вердикт зависит от A/B (S-014)",
+            ],
+            "columns": ["id", "verdict_v1", "verdict_v2", "changed"],
+            "by_variant": {
+                "A": {"rows": cmp_rows("A"), "changed_count": changed_count(scenario, "A")},
+                "B": {"rows": cmp_rows("B"), "changed_count": changed_count(scenario, "B")},
+            },
+        },
+        "L2-04": {
+            "artifact": "output/планерка_R-09.pptx",
+            "checklist": [
+                "Ровно 4 слайда: титул, сводка допуска, исключения, риски/ограничения",
+                "Сводка: допущен / не допущен / нет данных",
+                "S-014 в A допущен, в B — нет (порог Qubit)",
+            ],
+            "by_variant": {
+                "A": {
+                    "summary": summary_counts(scenario, "A"),
+                    "coa_expiry": coa_expiry(scenario),
+                    "transport_a": {"min_c": tmin, "max_c": tmax},
+                },
+                "B": {
+                    "summary": summary_counts(scenario, "B"),
+                    "coa_expiry": coa_expiry(scenario),
+                    "transport_a": {"min_c": tmin, "max_c": tmax},
+                },
+            },
+        },
+    }
+    return out
+
+
 def build_catalog() -> dict[str, Any]:
     cases = []
 
@@ -656,15 +879,23 @@ def build_catalog() -> dict[str, Any]:
             k_meta["assignment_counts"],
         )
     )
+    lab_meta = json.loads((CASES / "lab-sample-qc-release" / "meta.json").read_text(encoding="utf-8"))
+    cases.append(
+        live(
+            "lab-sample-qc-release",
+            "QC-релиз лабораторных проб",
+            lab_meta.get("organization", ""),
+            lab_meta["cutoff_date"],
+            lab_meta["assignment_counts"],
+        )
+    )
     for cid in (
-        "lab-sample-qc-release",
         "supply-contract-PS17-claims",
         "trip_audit",
     ):
         cases.append(stub(cid))
 
     titles = {
-        "lab-sample-qc-release": "QC-релиз лабораторных проб",
         "supply-contract-PS17-claims": "Поставка PS17 — претензии",
         "trip_audit": "Аудит командировочных",
     }
@@ -692,7 +923,12 @@ def patch_committee_demo_meta() -> None:
 def main() -> None:
     write_json(CONTENT / "catalog.json", build_catalog())
 
-    for case_id in ("committee-decisions-register", "baf-project", "komandirovki-K24-audit"):
+    for case_id in (
+        "committee-decisions-register",
+        "baf-project",
+        "komandirovki-K24-audit",
+        "lab-sample-qc-release",
+    ):
         case_dir = CASES / case_id
         tree = build_tree(case_dir / "workspace")
         write_json(case_dir / "workspace_tree.json", tree)
@@ -709,13 +945,18 @@ def main() -> None:
     write_json(k24 / "derived" / "l2_preview.json", build_k24_l2_preview(k24))
     write_json(k24 / "derived" / "file_previews.json", build_file_previews(k24))
 
+    lab = CASES / "lab-sample-qc-release"
+    write_json(lab / "demo_meta.json", build_lab_demo_meta(lab))
+    write_json(lab / "derived" / "l2_preview.json", build_lab_l2_preview(lab))
+    write_json(lab / "derived" / "file_previews.json", build_file_previews(lab))
+
     # Committee also gets empty previews map (md/png handled in app)
     write_json(
         CASES / "committee-decisions-register" / "derived" / "file_previews.json",
         {},
     )
 
-    print("OK: catalog, trees, baf+k24 demo_meta, l2_preview, file_previews")
+    print("OK: catalog, trees, baf+k24+lab demo_meta, l2_preview, file_previews")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,36 @@
+{
+  "assignment_id": "L1-02",
+  "answer_type": "qubit_conc",
+  "skill": "retrieval",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "приборы/qubit_export_2026-09-22.csv"
+    ],
+    [
+      "приборы/qubit_export_2026-09-22.csv",
+      "приборы/qubit_export_2026-09-22_повтор.csv"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "qubit": 15.0
+    }
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": {
+        "qubit": 15.0
+      }
+    },
+    "B": {
+      "refused": false,
+      "answer": {
+        "qubit": 14.9
+      }
+    }
+  }
+}

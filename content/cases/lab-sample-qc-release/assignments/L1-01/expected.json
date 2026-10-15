@@ -1,0 +1,25 @@
+{
+  "assignment_id": "L1-01",
+  "answer_type": "sop_ref",
+  "skill": "versions",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "регламенты/СОП-07_допуск_образцов_ДНК_v2.docx",
+      "регламенты/приказ_48-ОД_ввод_СОП-07_v2.pdf"
+    ],
+    [
+      "регламенты/СОП-07_допуск_образцов_ДНК_v1.docx",
+      "регламенты/СОП-07_допуск_образцов_ДНК_v2.docx",
+      "регламенты/приказ_48-ОД_ввод_СОП-07_v2.pdf"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "version": "v2",
+      "a260_280_min": 1.8
+    }
+  }
+}

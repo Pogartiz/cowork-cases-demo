@@ -1,0 +1,52 @@
+{
+  "assignment_id": "L1-05",
+  "answer_type": "admission_verdict",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "регламенты/СОП-07_допуск_образцов_ДНК_v2.docx",
+      "приборы/qubit_export_2026-09-22.csv",
+      "проекты/МТБ-26/отчеты_nanodrop/nanodrop_S-014.pdf",
+      "проекты/МТБ-26/журнал_приема_образцов_МТБ-26.xlsx"
+    ],
+    [
+      "регламенты/СОП-07_допуск_образцов_ДНК_v2.docx",
+      "регламенты/приказ_48-ОД_ввод_СОП-07_v2.pdf",
+      "приборы/qubit_export_2026-09-22.csv",
+      "проекты/МТБ-26/отчеты_nanodrop/nanodrop_S-014.pdf",
+      "проекты/МТБ-26/журнал_приема_образцов_МТБ-26.xlsx",
+      "справочники/правила_именования_образцов.md"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "admitted": true,
+      "qubit": 15.0,
+      "a260_280": 1.84,
+      "mass": 450.0
+    }
+  },
+  "expected_by_variant": {
+    "A": {
+      "refused": false,
+      "answer": {
+        "admitted": true,
+        "qubit": 15.0,
+        "a260_280": 1.84,
+        "mass": 450.0
+      }
+    },
+    "B": {
+      "refused": false,
+      "answer": {
+        "admitted": false,
+        "qubit": 14.9,
+        "a260_280": 1.84,
+        "mass": 447.0
+      }
+    }
+  }
+}

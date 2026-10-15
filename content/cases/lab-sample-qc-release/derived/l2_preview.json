@@ -1,0 +1,366 @@
+{
+  "L2-01": {
+    "artifact": "output/допуск_образцов_МТБ-26.xlsx",
+    "sheet": "Допуск",
+    "checklist": [
+      "Лист допуска 6 образцов МТБ-26; масса и флаги — формулы",
+      "Лист «Исключения»: не допущенные / нет данных",
+      "Qubit S-014 зависит от варианта A/B (15.0 vs 14.9)"
+    ],
+    "columns": [
+      "id",
+      "qubit",
+      "a260_280",
+      "volume_ul",
+      "mass",
+      "verdict"
+    ],
+    "by_variant": {
+      "A": {
+        "rows": [
+          {
+            "id": "S-011",
+            "qubit": 22.0,
+            "a260_280": 1.86,
+            "volume_ul": 40.0,
+            "mass": 880.0,
+            "verdict": "Допущен"
+          },
+          {
+            "id": "S-012",
+            "qubit": 18.5,
+            "a260_280": 1.91,
+            "volume_ul": 30.0,
+            "mass": 555.0,
+            "verdict": "Допущен"
+          },
+          {
+            "id": "S-013",
+            "qubit": 14.0,
+            "a260_280": 1.88,
+            "volume_ul": 25.0,
+            "mass": 350.0,
+            "verdict": "Не допущен"
+          },
+          {
+            "id": "S-014",
+            "qubit": 15.0,
+            "a260_280": 1.84,
+            "volume_ul": 30.0,
+            "mass": 450.0,
+            "verdict": "Допущен"
+          },
+          {
+            "id": "S-015",
+            "qubit": 20.0,
+            "a260_280": 1.78,
+            "volume_ul": 35.0,
+            "mass": 700.0,
+            "verdict": "Не допущен"
+          },
+          {
+            "id": "S-016",
+            "qubit": 17.0,
+            "a260_280": null,
+            "volume_ul": 30.0,
+            "mass": 510.0,
+            "verdict": "Нет данных"
+          }
+        ],
+        "exclusions": [
+          {
+            "id": "S-013",
+            "reason": "Qubit 14.0 < 15.0; масса 350.0 < 400",
+            "sop_points": "4.1, 4.3"
+          },
+          {
+            "id": "S-015",
+            "reason": "A260/280 = 1.78",
+            "sop_points": "4.2"
+          },
+          {
+            "id": "S-016",
+            "reason": "нет измерения A260/280",
+            "sop_points": "4.2"
+          }
+        ]
+      },
+      "B": {
+        "rows": [
+          {
+            "id": "S-011",
+            "qubit": 22.0,
+            "a260_280": 1.86,
+            "volume_ul": 40.0,
+            "mass": 880.0,
+            "verdict": "Допущен"
+          },
+          {
+            "id": "S-012",
+            "qubit": 18.5,
+            "a260_280": 1.91,
+            "volume_ul": 30.0,
+            "mass": 555.0,
+            "verdict": "Допущен"
+          },
+          {
+            "id": "S-013",
+            "qubit": 14.0,
+            "a260_280": 1.88,
+            "volume_ul": 25.0,
+            "mass": 350.0,
+            "verdict": "Не допущен"
+          },
+          {
+            "id": "S-014",
+            "qubit": 14.9,
+            "a260_280": 1.84,
+            "volume_ul": 30.0,
+            "mass": 447.0,
+            "verdict": "Не допущен"
+          },
+          {
+            "id": "S-015",
+            "qubit": 20.0,
+            "a260_280": 1.78,
+            "volume_ul": 35.0,
+            "mass": 700.0,
+            "verdict": "Не допущен"
+          },
+          {
+            "id": "S-016",
+            "qubit": 17.0,
+            "a260_280": null,
+            "volume_ul": 30.0,
+            "mass": 510.0,
+            "verdict": "Нет данных"
+          }
+        ],
+        "exclusions": [
+          {
+            "id": "S-013",
+            "reason": "Qubit 14.0 < 15.0; масса 350.0 < 400",
+            "sop_points": "4.1, 4.3"
+          },
+          {
+            "id": "S-014",
+            "reason": "Qubit 14.9 < 15.0",
+            "sop_points": "4.1"
+          },
+          {
+            "id": "S-015",
+            "reason": "A260/280 = 1.78",
+            "sop_points": "4.2"
+          },
+          {
+            "id": "S-016",
+            "reason": "нет измерения A260/280",
+            "sop_points": "4.2"
+          }
+        ]
+      }
+    }
+  },
+  "L2-02": {
+    "artifact": "output/отчет_допуск_R-09.docx",
+    "checklist": [
+      "Разделы: Методика, Результаты допуска, Исключения, Ограничения данных, Готовность к R-09",
+      "Методика: СОП-07 v2",
+      "Числа допуска/исключений зависят от A/B"
+    ],
+    "by_variant": {
+      "A": {
+        "summary": {
+          "admitted": 3,
+          "rejected": 2,
+          "no_data": 1,
+          "total": 6
+        },
+        "exclusions": [
+          {
+            "id": "S-013",
+            "reason": "Qubit 14.0 < 15.0; масса 350.0 < 400",
+            "sop_points": "4.1, 4.3"
+          },
+          {
+            "id": "S-015",
+            "reason": "A260/280 = 1.78",
+            "sop_points": "4.2"
+          },
+          {
+            "id": "S-016",
+            "reason": "нет измерения A260/280",
+            "sop_points": "4.2"
+          }
+        ],
+        "coa_expiry": "2026-09-20"
+      },
+      "B": {
+        "summary": {
+          "admitted": 2,
+          "rejected": 3,
+          "no_data": 1,
+          "total": 6
+        },
+        "exclusions": [
+          {
+            "id": "S-013",
+            "reason": "Qubit 14.0 < 15.0; масса 350.0 < 400",
+            "sop_points": "4.1, 4.3"
+          },
+          {
+            "id": "S-014",
+            "reason": "Qubit 14.9 < 15.0",
+            "sop_points": "4.1"
+          },
+          {
+            "id": "S-015",
+            "reason": "A260/280 = 1.78",
+            "sop_points": "4.2"
+          },
+          {
+            "id": "S-016",
+            "reason": "нет измерения A260/280",
+            "sop_points": "4.2"
+          }
+        ],
+        "coa_expiry": "2026-09-20"
+      }
+    }
+  },
+  "L2-03": {
+    "artifact": "output/влияние_СОП_МТБ-26.xlsx",
+    "sheet": "Сравнение",
+    "checklist": [
+      "Лист «Пороги»: параметры v1 vs v2",
+      "Лист сравнения вердиктов по образцам; флаги изменений — формулы",
+      "Число сменивших вердикт зависит от A/B (S-014)"
+    ],
+    "columns": [
+      "id",
+      "verdict_v1",
+      "verdict_v2",
+      "changed"
+    ],
+    "by_variant": {
+      "A": {
+        "rows": [
+          {
+            "id": "S-011",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Допущен",
+            "changed": false
+          },
+          {
+            "id": "S-012",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Допущен",
+            "changed": false
+          },
+          {
+            "id": "S-013",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Не допущен",
+            "changed": true
+          },
+          {
+            "id": "S-014",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Допущен",
+            "changed": false
+          },
+          {
+            "id": "S-015",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Не допущен",
+            "changed": true
+          },
+          {
+            "id": "S-016",
+            "verdict_v1": "Нет данных",
+            "verdict_v2": "Нет данных",
+            "changed": false
+          }
+        ],
+        "changed_count": 2
+      },
+      "B": {
+        "rows": [
+          {
+            "id": "S-011",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Допущен",
+            "changed": false
+          },
+          {
+            "id": "S-012",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Допущен",
+            "changed": false
+          },
+          {
+            "id": "S-013",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Не допущен",
+            "changed": true
+          },
+          {
+            "id": "S-014",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Не допущен",
+            "changed": true
+          },
+          {
+            "id": "S-015",
+            "verdict_v1": "Допущен",
+            "verdict_v2": "Не допущен",
+            "changed": true
+          },
+          {
+            "id": "S-016",
+            "verdict_v1": "Нет данных",
+            "verdict_v2": "Нет данных",
+            "changed": false
+          }
+        ],
+        "changed_count": 3
+      }
+    }
+  },
+  "L2-04": {
+    "artifact": "output/планерка_R-09.pptx",
+    "checklist": [
+      "Ровно 4 слайда: титул, сводка допуска, исключения, риски/ограничения",
+      "Сводка: допущен / не допущен / нет данных",
+      "S-014 в A допущен, в B — нет (порог Qubit)"
+    ],
+    "by_variant": {
+      "A": {
+        "summary": {
+          "admitted": 3,
+          "rejected": 2,
+          "no_data": 1,
+          "total": 6
+        },
+        "coa_expiry": "2026-09-20",
+        "transport_a": {
+          "min_c": 3.1,
+          "max_c": 6.4
+        }
+      },
+      "B": {
+        "summary": {
+          "admitted": 2,
+          "rejected": 3,
+          "no_data": 1,
+          "total": 6
+        },
+        "coa_expiry": "2026-09-20",
+        "transport_a": {
+          "min_c": 3.1,
+          "max_c": 6.4
+        }
+      }
+    }
+  }
+}

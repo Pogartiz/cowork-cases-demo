@@ -1,0 +1,26 @@
+{
+  "assignment_id": "L1-04",
+  "answer_type": "mass_ng",
+  "skill": "rules",
+  "source_policy": "any_of_sets",
+  "acceptable_source_sets": [
+    [
+      "регламенты/СОП-07_допуск_образцов_ДНК_v2.docx",
+      "приборы/qubit_export_2026-09-22.csv",
+      "проекты/МТБ-26/журнал_приема_образцов_МТБ-26.xlsx"
+    ],
+    [
+      "регламенты/СОП-07_допуск_образцов_ДНК_v2.docx",
+      "регламенты/приказ_48-ОД_ввод_СОП-07_v2.pdf",
+      "приборы/qubit_export_2026-09-22.csv",
+      "проекты/МТБ-26/журнал_приема_образцов_МТБ-26.xlsx"
+    ]
+  ],
+  "sort": "none",
+  "expected": {
+    "refused": false,
+    "answer": {
+      "mass": 555
+    }
+  }
+}

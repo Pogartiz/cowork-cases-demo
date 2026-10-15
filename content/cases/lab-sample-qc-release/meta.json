@@ -1,0 +1,45 @@
+{
+  "case_id": "lab-sample-qc-release",
+  "domain": "office",
+  "cutoff_date": "2026-09-30",
+  "organization": "НИИ «Биогеном»",
+  "project": "МТБ-26",
+  "assignment_counts": { "L1": 8, "L2": 4, "total": 12 },
+  "traps": {
+    "versions": true,
+    "distractor_twin": true,
+    "rule_in_text": true,
+    "scan_only_fact": true,
+    "unanswerable": true,
+    "minimal_pairs": true
+  },
+  "unanswerable_assignments": ["L1-06", "L1-08"],
+  "vision_assignments": ["L1-03"],
+  "minimal_pair_affects": ["L1-02", "L1-05", "L2-01", "L2-02", "L2-03", "L2-04"],
+  "skills": [
+    "versions",
+    "rules",
+    "retrieval",
+    "multi_format",
+    "refusal",
+    "vision",
+    "artifact_reconciliation",
+    "artifact_report",
+    "artifact_limits",
+    "artifact_brief"
+  ],
+  "instruction_id_map": {
+    "L1-01": "LAB-L1-01",
+    "L1-02": "LAB-L1-02",
+    "L1-03": "LAB-L1-03",
+    "L1-04": "LAB-L1-04",
+    "L1-05": "LAB-L1-05",
+    "L1-06": "LAB-L1-06",
+    "L1-07": "LAB-L1-07",
+    "L1-08": "LAB-L1-08",
+    "L2-01": "LAB-L2-01",
+    "L2-02": "LAB-L2-02",
+    "L2-03": "LAB-L2-03",
+    "L2-04": "LAB-L2-04"
+  }
+}

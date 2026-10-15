@@ -1,0 +1,134 @@
+{
+  "title": "QC-релиз лабораторных проб",
+  "case_id": "lab-sample-qc-release",
+  "cutoff_date": "2026-09-30",
+  "organization": "НИИ «Биогеном»",
+  "default_mode": "agent",
+  "eval_mode": "simple",
+  "tour": [],
+  "variant_files": [
+    "приборы/qubit_export_2026-09-22.csv"
+  ],
+  "variant_hint": {
+    "B": "Вариант B: в Qubit S-014 концентрация 15.0 → 14.9 нг/мкл."
+  },
+  "assignments": [
+    {
+      "id": "L1-01",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "versions",
+      "short": "СОП-07 и нижняя граница A260/280",
+      "has_variants": false
+    },
+    {
+      "id": "L1-02",
+      "level": "L1",
+      "skill": "retrieval",
+      "trap": "minimal_pair",
+      "short": "Концентрация S-014 по Qubit",
+      "has_variants": true
+    },
+    {
+      "id": "L1-03",
+      "level": "L1",
+      "skill": "vision",
+      "trap": "scan_only_fact",
+      "short": "Час приёма партии B (скан)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-04",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "rule_in_text",
+      "short": "Масса ДНК S-012 по СОП",
+      "has_variants": false
+    },
+    {
+      "id": "L1-05",
+      "level": "L1",
+      "skill": "rules",
+      "trap": "minimal_pair",
+      "short": "Допуск S-014 по СОП",
+      "has_variants": true
+    },
+    {
+      "id": "L1-06",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Допуск S-016 (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L1-07",
+      "level": "L1",
+      "skill": "versions",
+      "trap": "distractor_twin",
+      "short": "Лот L-4471 и срок CoA",
+      "has_variants": false
+    },
+    {
+      "id": "L1-08",
+      "level": "L1",
+      "skill": "refusal",
+      "trap": "unanswerable",
+      "short": "Макс. температура транспорта S-015 (отказ)",
+      "has_variants": false
+    },
+    {
+      "id": "L2-01",
+      "level": "L2",
+      "skill": "artifact_reconciliation",
+      "trap": "minimal_pair",
+      "short": "Допуск образцов МТБ-26.xlsx",
+      "has_variants": true
+    },
+    {
+      "id": "L2-02",
+      "level": "L2",
+      "skill": "artifact_report",
+      "trap": "minimal_pair",
+      "short": "Отчёт допуск R-09.docx",
+      "has_variants": true
+    },
+    {
+      "id": "L2-03",
+      "level": "L2",
+      "skill": "artifact_limits",
+      "trap": "minimal_pair",
+      "short": "Влияние смены СОП.xlsx",
+      "has_variants": true
+    },
+    {
+      "id": "L2-04",
+      "level": "L2",
+      "skill": "artifact_brief",
+      "trap": "minimal_pair",
+      "short": "Планёрка R-09.pptx",
+      "has_variants": true
+    }
+  ],
+  "trap_labels": {
+    "versions": "Версии СОП/CoA",
+    "rule_in_text": "Правило в СОП",
+    "scan_only_fact": "Факт только со скана",
+    "unanswerable": "Неотвечаемый вопрос",
+    "minimal_pair": "Минимальная пара A/B",
+    "distractor_twin": "Дистрактор-двойник"
+  },
+  "skill_labels": {
+    "versions": "Версии",
+    "rules": "Правила",
+    "retrieval": "Поиск",
+    "multi_format": "Мультиформат",
+    "refusal": "Отказ",
+    "vision": "Vision / скан",
+    "artifact_reconciliation": "Артефакт: допуск",
+    "artifact_report": "Артефакт: отчёт",
+    "artifact_limits": "Артефакт: влияние СОП",
+    "artifact_brief": "Артефакт: презентация",
+    "artifact": "Артефакт"
+  }
+}
